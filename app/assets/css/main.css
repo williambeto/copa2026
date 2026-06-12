@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-marine-950 text-gray-200 antialiased;
+  }
+
+  .light body,
+  body.light {
+    @apply bg-gray-50 text-gray-800;
+  }
+
+  ::selection {
+    @apply bg-gold-500/30 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-500;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4;
+  }
+
+  .light .section-title {
+    @apply text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-lg max-w-3xl;
+  }
+
+  .light .section-subtitle {
+    @apply text-gray-600;
+  }
+
+  .card {
+    @apply bg-graphite-900/80 border border-graphite-800 rounded-xl p-6 backdrop-blur-sm;
+  }
+
+  .light .card {
+    @apply bg-white border-gray-200 shadow-sm;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-graphite-700 hover:bg-graphite-800/80;
+  }
+
+  .light .card-hover {
+    @apply hover:border-gray-300 hover:bg-gray-50;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .tooltip-trigger {
+    @apply cursor-help border-b border-dotted border-gray-500;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-graphite-800 rounded;
+  }
+
+  .light .skeleton {
+    @apply bg-gray-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
