@@ -1,85 +1,97 @@
 <template>
-  <section class="section-container" aria-labelledby="injury-heading">
-    <div class="max-w-[1200px] mx-auto">
-      <p class="section-label">Fator crítico</p>
-      <h2 id="injury-heading" class="section-title">
-        Lesões e desgaste podem mudar tudo
+  <section class="section-dark" aria-labelledby="injury-heading">
+    <div class="section-inner">
+      <p class="section-label">Boletim médico</p>
+      <h2 id="injury-heading" class="section-headline">
+        Lesões e riscos físicos
       </h2>
+      <p class="section-subhead mb-10">
+        Situação física dos principais jogadores das seleções favoritas, atualizada
+        conforme dados públicos disponíveis em junho de 2026.
+      </p>
 
-      <!-- Warning callout -->
-      <div class="callout-warning mb-8">
-        <div class="flex items-start gap-3">
-          <span class="text-amber-400 text-lg mt-0.5 shrink-0" aria-hidden="true">&#9888;</span>
-          <div>
-            <p class="text-sm font-medium text-amber-300 mb-1">Situação dos principais jogadores</p>
-            <p class="text-xs text-gray-400">Status físico atualizado conforme dados disponíveis publicamente em 12 de junho de 2026.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Key injuries grid (only non-available) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <!-- Critical injuries grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <article
           v-for="injury in criticalInjuries"
           :key="`${injury.teamId}-${injury.player}`"
-          class="card-outline"
+          class="editorial-card-border p-5"
           :aria-label="`${injury.player}: ${injury.statusLabel}`"
         >
-          <div class="flex items-start justify-between gap-2 mb-2">
-            <div>
-              <span class="text-xs text-gray-500">{{ getTeamFlag(injury.teamId) }}</span>
-              <h4 class="font-semibold text-white text-sm mt-0.5">{{ injury.player }}</h4>
+          <div class="flex items-center gap-4">
+            <!-- Avatar placeholder -->
+            <div
+              class="w-14 h-14 rounded-full flex-shrink-0 bg-gradient-to-br border-2"
+              :class="avatarBorderClass(injury.status)"
+            >
+              <div class="w-full h-full rounded-full flex items-center justify-center text-lg font-display font-bold"
+                :class="avatarBgClass(injury.status)"
+              >
+                {{ injury.player.charAt(0) }}
+              </div>
             </div>
-            <span class="shrink-0 px-2 py-0.5 rounded-full text-xs font-medium" :class="statusBadgeClass(injury.status)">
-              {{ injury.statusLabel }}
-            </span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <span class="text-sm" aria-hidden="true">{{ getTeamFlag(injury.teamId) }}</span>
+                <h4 class="font-display font-bold text-sm text-white truncate">{{ injury.player }}</h4>
+              </div>
+              <p class="text-xs text-gray-500">{{ getPosition(injury) }}</p>
+              <div class="flex items-center gap-2 mt-1.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm text-xs font-semibold"
+                  :class="statusClass(injury.status)"
+                >
+                  <span class="w-1.5 h-1.5 rounded-full" :class="statusDotClass(injury.status)" />
+                  {{ injury.statusLabel }}
+                </span>
+              </div>
+            </div>
           </div>
-          <p class="text-xs text-gray-600">Atualizado em {{ injury.lastUpdated }}</p>
         </article>
       </div>
 
-      <!-- Accordion: all injuries -->
-      <div class="card-outline">
+      <!-- Accordion: full list -->
+      <div class="editorial-card-border">
         <button
           type="button"
-          class="accordion-trigger w-full"
-          :aria-expanded="showAllInjuries"
+          class="accordion-trigger px-6"
+          :aria-expanded="showAll"
           aria-controls="injuries-panel"
-          @click="showAllInjuries = !showAllInjuries"
+          @click="showAll = !showAll"
         >
           <span>Ver todos os jogadores monitorados ({{ INJURIES.length }})</span>
-          <span class="text-lg transition-transform duration-300" :class="{ 'rotate-180': showAllInjuries }" aria-hidden="true">▾</span>
+          <span class="text-lg transition-transform duration-300" :class="{ 'rotate-180': showAll }" aria-hidden="true">▾</span>
         </button>
 
         <div
           id="injuries-panel"
           class="accordion-content"
-          :style="{ maxHeight: showAllInjuries ? '3000px' : '0', opacity: showAllInjuries ? 1 : 0 }"
+          :style="{ maxHeight: showAll ? '4000px' : '0', opacity: showAll ? 1 : 0 }"
           role="region"
-          :aria-hidden="!showAllInjuries"
+          :aria-hidden="!showAll"
         >
-          <div class="accordion-content-inner">
+          <div class="accordion-content-inner px-6">
             <!-- Filter buttons -->
-            <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar por status">
+            <div class="flex flex-wrap gap-2 mb-6" role="group" aria-label="Filtrar por status">
               <button
-                v-for="filter in statusFilters"
+                v-for="filter in filters"
                 :key="filter.value"
-                class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200"
+                class="px-3 py-1.5 rounded-sm text-xs font-semibold transition-all duration-200"
                 :class="activeFilter === filter.value
-                  ? 'bg-gold-500/20 text-gold-400 border border-gold-500/40'
-                  : 'bg-graphite-900/60 border border-graphite-800 text-gray-400 hover:text-gray-200'"
+                  ? 'tag-gold'
+                  : 'tag-flag'"
                 @click="activeFilter = filter.value"
               >
                 {{ filter.label }}
               </button>
             </div>
 
-            <div v-if="filteredGroupedTeams.length === 0" class="text-center py-8 text-gray-500">
+            <div v-if="groupedTeams.length === 0" class="text-center py-8 text-gray-500">
               <p>Nenhum jogador encontrado para o filtro selecionado.</p>
             </div>
 
-            <div v-for="{ team, injuries } in filteredGroupedTeams" :key="team.id" class="mb-6">
-              <h4 class="flex items-center gap-2 text-sm font-semibold text-gray-300 mb-2">
+            <div v-for="{ team, injuries } in groupedTeams" :key="team.id" class="mb-6 last:mb-0">
+              <h4 class="flex items-center gap-2 font-display font-bold text-sm text-white mb-3">
                 <span aria-hidden="true">{{ team.flag }}</span>
                 {{ team.name }}
               </h4>
@@ -87,11 +99,30 @@
                 <div
                   v-for="injury in injuries"
                   :key="`${injury.teamId}-${injury.player}`"
-                  class="flex items-center justify-between gap-3 p-2.5 rounded-lg bg-graphite-950/50"
+                  class="flex items-center justify-between gap-3 p-3 rounded-sm bg-surface-900/60 border border-surface-800/40"
                 >
-                  <span class="text-sm text-gray-300 truncate">{{ injury.player }}</span>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <div
+                      class="w-8 h-8 rounded-full flex-shrink-0 bg-gradient-to-br"
+                      :class="avatarBorderClass(injury.status)"
+                    >
+                      <div class="w-full h-full rounded-full flex items-center justify-center text-xs font-bold"
+                        :class="avatarBgClass(injury.status)"
+                      >
+                        {{ injury.player.charAt(0) }}
+                      </div>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-sm text-gray-300 truncate">{{ injury.player }}</p>
+                      <p class="text-xs text-gray-600">{{ getPosition(injury) }}</p>
+                    </div>
+                  </div>
                   <div class="flex items-center gap-2 shrink-0">
-                    <span class="px-2 py-0.5 rounded-full text-xs font-medium" :class="statusBadgeClass(injury.status)">
+                    <span
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm text-xs font-semibold"
+                      :class="statusClass(injury.status)"
+                    >
+                      <span class="w-1.5 h-1.5 rounded-full" :class="statusDotClass(injury.status)" />
                       {{ injury.statusLabel }}
                     </span>
                     <span class="text-xs text-gray-600">{{ injury.lastUpdated }}</span>
@@ -111,16 +142,16 @@ import { ref, computed } from 'vue'
 import type { TeamData, InjuryInfo } from '~/types/teams'
 import { TEAMS, INJURIES } from '~/data/teams'
 
-const showAllInjuries = ref(false)
+const showAll = ref(false)
 
 type StatusFilter = InjuryInfo['status'] | 'all'
 
-interface StatusFilterOption {
+interface FilterOption {
   value: StatusFilter
   label: string
 }
 
-const statusFilters: StatusFilterOption[] = [
+const filters: FilterOption[] = [
   { value: 'all', label: 'Todos' },
   { value: 'available', label: 'Disponíveis' },
   { value: 'returning', label: 'Retornando' },
@@ -131,33 +162,93 @@ const statusFilters: StatusFilterOption[] = [
 
 const activeFilter = ref<StatusFilter>('all')
 
-const statusBadgeClassMap: Record<string, string> = {
-  available: 'bg-green-900/50 text-green-400 border border-green-800/50',
-  returning: 'bg-amber-900/50 text-amber-400 border border-amber-800/50',
-  doubt: 'bg-orange-900/50 text-orange-400 border border-orange-800/50',
-  out: 'bg-red-900/50 text-red-400 border border-red-800/50',
-  overloaded: 'bg-purple-900/50 text-purple-400 border border-purple-800/50',
+const criticalInjuries = computed(() =>
+  INJURIES.filter(i => i.status !== 'available')
+)
+
+const statusStyles: Record<string, { container: string; dot: string }> = {
+  available: {
+    container: 'bg-green-500/10 text-green-400 border border-green-500/20',
+    dot: 'bg-green-400',
+  },
+  returning: {
+    container: 'bg-blue-500/10 text-blue-400 border border-blue-500/20',
+    dot: 'bg-blue-400',
+  },
+  doubt: {
+    container: 'bg-amber-500/10 text-amber-400 border border-amber-500/20',
+    dot: 'bg-amber-400',
+  },
+  out: {
+    container: 'bg-red-500/10 text-red-400 border border-red-500/20',
+    dot: 'bg-red-400',
+  },
+  overloaded: {
+    container: 'bg-purple-500/10 text-purple-400 border border-purple-500/20',
+    dot: 'bg-purple-400',
+  },
 }
 
-function statusBadgeClass(status: InjuryInfo['status']): string {
-  return statusBadgeClassMap[status] ?? 'bg-gray-800 text-gray-400'
+function statusClass(status: InjuryInfo['status']): string {
+  return statusStyles[status]?.container ?? 'bg-gray-500/10 text-gray-400 border border-gray-500/20'
+}
+
+function statusDotClass(status: InjuryInfo['status']): string {
+  return statusStyles[status]?.dot ?? 'bg-gray-400'
+}
+
+function avatarBorderClass(status: InjuryInfo['status']): string {
+  switch (status) {
+    case 'available': return 'border-green-500/40'
+    case 'returning': return 'border-blue-500/40'
+    case 'doubt': return 'border-amber-500/40'
+    case 'out': return 'border-red-500/40'
+    case 'overloaded': return 'border-purple-500/40'
+    default: return 'border-surface-700/40'
+  }
+}
+
+function avatarBgClass(status: InjuryInfo['status']): string {
+  switch (status) {
+    case 'available': return 'bg-gradient-to-br from-green-500/20 to-green-500/5 text-green-400'
+    case 'returning': return 'bg-gradient-to-br from-blue-500/20 to-blue-500/5 text-blue-400'
+    case 'doubt': return 'bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-400'
+    case 'out': return 'bg-gradient-to-br from-red-500/20 to-red-500/5 text-red-400'
+    case 'overloaded': return 'bg-gradient-to-br from-purple-500/20 to-purple-500/5 text-purple-400'
+    default: return 'bg-gradient-to-br from-surface-500/20 to-surface-500/5 text-gray-400'
+  }
 }
 
 function getTeamFlag(teamId: string): string {
   return TEAMS.find(t => t.id === teamId)?.flag ?? ''
 }
 
-// Only show non-available players in the main view
-const criticalInjuries = computed(() =>
-  INJURIES.filter(i => i.status !== 'available')
-)
+function getPosition(injury: InjuryInfo): string {
+  const positionMap: Record<string, string> = {
+    'Lamine Yamal': 'Ponta',
+    'Rodri': 'Volante',
+    'Pedri': 'Meia',
+    'Kylian Mbappé': 'Atacante',
+    'Bukayo Saka': 'Ponta',
+    'Lionel Messi': 'Atacante',
+    'Cristian Romero': 'Zagueiro',
+    'Neymar': 'Atacante',
+    'Alisson': 'Goleiro',
+    'Rodrygo': 'Atacante',
+    'Éder Militão': 'Zagueiro',
+    'Estêvão': 'Ponta',
+    'Florian Wirtz': 'Meia',
+    'Jamal Musiala': 'Meia',
+  }
+  return positionMap[injury.player] ?? 'Jogador'
+}
 
 interface GroupedTeam {
   team: TeamData
   injuries: InjuryInfo[]
 }
 
-const filteredGroupedTeams = computed<GroupedTeam[]>(() => {
+const groupedTeams = computed<GroupedTeam[]>(() => {
   const filtered = activeFilter.value === 'all'
     ? INJURIES
     : INJURIES.filter(i => i.status === activeFilter.value)

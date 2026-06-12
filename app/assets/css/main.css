@@ -24,118 +24,241 @@
   }
 
   body {
-    @apply bg-marine-950 text-gray-200 antialiased;
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .light body,
-  body.light {
-    @apply bg-gray-50 text-gray-800;
+    @apply bg-navy-950 text-gray-200 antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.7;
   }
 
   ::selection {
-    @apply bg-gold-500/30 text-white;
+    @apply bg-gold-500/25 text-white;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-gold-500;
+    @apply outline-2 outline-offset-2 outline-gold-500 outline;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
   }
 }
 
 @layer components {
-  /* ===== Section containers with visual variety ===== */
-  .section-container {
-    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
+  /* ===== Editorial section containers ===== */
+  .section-dark {
+    @apply py-section lg:py-section-lg;
   }
 
-  .section-container-narrow {
-    @apply max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
+  .section-light {
+    @apply py-section lg:py-section-lg bg-editorial-100 text-gray-900;
   }
 
-  .section-container-alt {
-    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 bg-graphite-950/30;
-  }
-
-  .section-container-full {
-    @apply py-20 lg:py-28;
-  }
-
-  /* ===== Typography ===== */
-  .section-title {
-    @apply text-[1.75rem] sm:text-[2rem] lg:text-[2.25rem] font-extrabold text-white mb-4 leading-tight tracking-tight;
-  }
-
-  .light .section-title {
+  .section-light h2,
+  .section-light h3,
+  .section-light .section-label {
     @apply text-gray-900;
   }
 
-  .section-title-lg {
-    @apply text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold text-white mb-4 leading-tight tracking-tight;
+  .section-light p {
+    @apply text-gray-700;
   }
 
-  .section-subtitle {
-    @apply text-gray-400 text-base sm:text-lg max-w-3xl leading-relaxed;
+  .section-inner {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .light .section-subtitle {
+  .section-inner-narrow {
+    @apply max-w-[760px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-inner-wide {
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ===== Section dividers ===== */
+  .section-divider {
+    @apply w-full h-px;
+  }
+  .section-divider-dark {
+    @apply section-divider bg-gradient-to-r from-transparent via-navy-800/50 to-transparent;
+  }
+
+  /* ===== Typography ===== */
+  .section-label {
+    @apply font-display text-xs uppercase tracking-[0.2em] text-gold-500 mb-4 font-semibold;
+  }
+
+  .section-light .section-label {
+    @apply text-gold-600;
+  }
+
+  .section-headline {
+    @apply font-display text-section lg:text-section-lg font-extrabold leading-tight tracking-tight text-white;
+  }
+
+  .section-light .section-headline {
+    @apply text-gray-900;
+  }
+
+  .section-subhead {
+    @apply font-sans text-body-lg text-gray-400 max-w-2xl leading-relaxed;
+  }
+
+  .section-light .section-subhead {
     @apply text-gray-600;
   }
 
-  .section-label {
-    @apply text-xs sm:text-sm font-mono uppercase tracking-[0.15em] text-gold-500 mb-3;
+  .heading-serif {
+    @apply font-serif text-2xl lg:text-3xl font-bold leading-tight;
   }
 
-  /* ===== Cards with visual variety ===== */
-  .card {
-    @apply bg-graphite-900/80 border border-graphite-800 rounded-xl p-6 backdrop-blur-sm;
+  .pull-quote {
+    @apply font-serif text-xl lg:text-2xl italic leading-relaxed text-gray-200 border-l-4 border-gold-500/50 pl-6;
   }
 
-  .light .card {
-    @apply bg-white border-gray-200 shadow-sm;
+  .section-light .pull-quote {
+    @apply text-gray-800 border-gold-600/50;
   }
 
-  .card-hover {
-    @apply card transition-all duration-300 hover:border-graphite-700 hover:bg-graphite-800/80;
+  /* ===== Editorial cards ===== */
+  .editorial-card {
+    @apply bg-navy-900/60 backdrop-blur-sm rounded-sm;
   }
 
-  .light .card-hover {
-    @apply hover:border-gray-300 hover:bg-gray-50;
+  .section-light .editorial-card {
+    @apply bg-white shadow-sm;
   }
 
-  .card-highlight {
-    @apply bg-graphite-900/90 border border-gold-500/20 rounded-2xl p-6 sm:p-8 backdrop-blur-md;
+  .editorial-card-accent {
+    @apply editorial-card border-l-4 border-gold-500/50;
   }
 
-  .light .card-highlight {
-    @apply bg-white border-gold-500/30 shadow-md;
+  .editorial-card-border {
+    @apply editorial-card border border-surface-800/40;
   }
 
-  .card-outline {
-    @apply border border-graphite-800 rounded-xl p-6;
-  }
-
-  .light .card-outline {
+  .section-light .editorial-card-border {
     @apply border-gray-200;
   }
 
-  .card-plain {
-    @apply rounded-xl p-6;
+  /* ===== Photo placeholder ===== */
+  .photo-placeholder {
+    @apply relative overflow-hidden bg-gradient-to-br;
   }
 
-  /* ===== Badges ===== */
-  .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  .photo-placeholder::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent;
+  }
+
+  .photo-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
+  }
+
+  /* ===== Stats badges ===== */
+  .stat-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-sm font-semibold;
+  }
+
+  .stat-badge-gold {
+    @apply stat-badge bg-gold-500/15 text-gold-400 border border-gold-500/25;
+  }
+
+  .stat-badge-neutral {
+    @apply stat-badge bg-surface-800/60 text-gray-300 border border-surface-700/40;
+  }
+
+  .section-light .stat-badge-neutral {
+    @apply bg-gray-100 text-gray-700 border-gray-200;
+  }
+
+  /* ===== Data value ===== */
+  .data-value {
+    @apply font-mono font-semibold tabular-nums;
+  }
+
+  .data-percent {
+    @apply font-display font-extrabold text-gold-400 tracking-tight;
+  }
+
+  /* ===== Progress bar (sports-style) ===== */
+  .strength-bar {
+    @apply h-2 rounded-full overflow-hidden;
+  }
+
+  .strength-bar-track {
+    @apply strength-bar bg-surface-800/60 w-full;
+  }
+
+  .strength-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  .strength-bar-fill-gold { @apply bg-gold-500; }
+  .strength-bar-fill-green { @apply bg-green-500; }
+  .strength-bar-fill-blue { @apply bg-blue-500; }
+
+  /* ===== Stat block ===== */
+  .stat-block {
+    @apply flex flex-col;
+  }
+
+  .stat-block-value {
+    @apply font-display text-3xl lg:text-4xl font-extrabold text-white tracking-tight;
+  }
+
+  .section-light .stat-block-value {
+    @apply text-gray-900;
+  }
+
+  .stat-block-label {
+    @apply text-xs text-gray-500 uppercase tracking-wider mt-1 font-sans;
+  }
+
+  /* ===== Tags ===== */
+  .tag {
+    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium;
+  }
+
+  .tag-flag {
+    @apply tag bg-surface-800/60 text-gray-300 border border-surface-700/40;
+  }
+
+  .section-light .tag-flag {
+    @apply bg-gray-100 text-gray-700 border-gray-200;
+  }
+
+  .tag-gold {
+    @apply tag bg-gold-500/15 text-gold-400 border border-gold-500/25;
+  }
+
+  /* ===== Buttons ===== */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-bold text-sm uppercase tracking-wider
+           bg-gold-500 text-navy-950 hover:bg-gold-400
+           transition-colors duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-semibold text-sm uppercase tracking-wider
+           border border-surface-700/60 text-gray-300
+           hover:border-gold-500/50 hover:text-gold-400
+           transition-colors duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
+  }
+
+  .section-light .btn-outline {
+    @apply border-gray-300 text-gray-700 hover:border-gold-500/50 hover:text-gold-600;
   }
 
   /* ===== Accordion ===== */
   .accordion-trigger {
-    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-semibold text-white
+    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-display font-semibold text-white
            hover:text-gold-400 transition-colors duration-200
            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
   }
 
-  .light .accordion-trigger {
+  .section-light .accordion-trigger {
     @apply text-gray-900 hover:text-gold-600;
   }
 
@@ -144,90 +267,86 @@
   }
 
   .accordion-content-inner {
-    @apply pb-4 text-sm text-gray-300 leading-relaxed;
+    @apply pb-4 text-sm text-gray-400 leading-relaxed;
   }
 
-  .light .accordion-content-inner {
+  .section-light .accordion-content-inner {
     @apply text-gray-600;
-  }
-
-  /* ===== Tooltips ===== */
-  .tooltip-trigger {
-    @apply cursor-help border-b border-dotted border-gray-500;
-  }
-
-  /* ===== Skeleton loading ===== */
-  .skeleton {
-    @apply animate-pulse bg-graphite-800 rounded;
-  }
-
-  .light .skeleton {
-    @apply bg-gray-200;
-  }
-
-  /* ===== Semantic colors ===== */
-  .text-positive { @apply text-green-400; }
-  .text-warning { @apply text-amber-400; }
-  .text-danger { @apply text-red-400; }
-  .text-info { @apply text-blue-400; }
-  .text-accent { @apply text-gold-500; }
-  .text-muted { @apply text-gray-500; }
-
-  .bg-positive-subtle { @apply bg-green-500/10 border border-green-500/20; }
-  .bg-warning-subtle { @apply bg-amber-500/10 border border-amber-500/20; }
-  .bg-danger-subtle { @apply bg-red-500/10 border border-red-500/20; }
-  .bg-info-subtle { @apply bg-blue-500/10 border border-blue-500/20; }
-  .bg-accent-subtle { @apply bg-gold-500/10 border border-gold-500/20; }
-
-  /* ===== Data display ===== */
-  .data-value {
-    @apply font-mono font-semibold text-white tabular-nums;
-  }
-
-  .light .data-value {
-    @apply text-gray-900;
-  }
-
-  .data-label {
-    @apply text-xs text-gray-500 uppercase tracking-wider;
-  }
-
-  /* ===== Divider ===== */
-  .section-divider {
-    @apply border-t border-graphite-800/50 my-12;
   }
 
   /* ===== Callout ===== */
   .callout {
-    @apply rounded-xl p-5 text-sm leading-relaxed;
+    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4;
   }
 
   .callout-info {
-    @apply callout bg-blue-500/5 border border-blue-500/15 text-blue-200;
+    @apply callout bg-blue-500/[0.06] border-blue-400/40 text-gray-300;
   }
 
   .callout-warning {
-    @apply callout bg-amber-500/5 border border-amber-500/15 text-amber-200;
+    @apply callout bg-amber-500/[0.06] border-amber-400/40 text-gray-300;
   }
 
   .callout-danger {
-    @apply callout bg-red-500/5 border border-red-500/15 text-red-200;
+    @apply callout bg-red-500/[0.06] border-red-400/40 text-gray-300;
   }
 
-  /* ===== Progress bar ===== */
-  .progress-track {
-    @apply h-2 bg-marine-800/60 rounded-full overflow-hidden;
+  /* ===== Divider lines ===== */
+  .hr-gold {
+    @apply w-16 h-0.5 bg-gold-500/60;
   }
 
-  .progress-fill {
-    @apply h-full rounded-full transition-all duration-700 ease-out;
+  .hr-light {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent;
   }
 
-  .progress-fill-gold { @apply bg-gold-500; }
-  .progress-fill-green { @apply bg-green-500; }
-  .progress-fill-blue { @apply bg-blue-500; }
-  .progress-fill-red { @apply bg-red-500; }
-  .progress-fill-gray { @apply bg-gray-500; }
+  .section-light .hr-light {
+    @apply via-gray-300;
+  }
+
+  /* ===== Football field pattern for decorative use ===== */
+  .field-pattern {
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.015) 40px,
+      rgba(255, 255, 255, 0.015) 41px
+    );
+  }
+
+  /* ===== Responsive tables ===== */
+  .table-editorial {
+    @apply w-full text-sm;
+  }
+
+  .table-editorial thead th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500 border-b border-surface-800/60 font-sans;
+  }
+
+  .section-light .table-editorial thead th {
+    @apply text-gray-500 border-b-gray-200;
+  }
+
+  .table-editorial tbody td {
+    @apply px-4 py-3 border-b border-surface-800/30;
+  }
+
+  .section-light .table-editorial tbody td {
+    @apply border-b-gray-100;
+  }
+
+  .table-editorial tbody tr {
+    @apply transition-colors;
+  }
+
+  .table-editorial tbody tr:hover {
+    @apply bg-white/[0.03];
+  }
+
+  .section-light .table-editorial tbody tr:hover {
+    @apply bg-gray-50;
+  }
 }
 
 @layer utilities {
@@ -237,11 +356,12 @@
 
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.graphite.700') transparent;
+    scrollbar-color: theme('colors.surface.700') transparent;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
     height: 6px;
+    width: 6px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-track {
@@ -249,7 +369,7 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: theme('colors.graphite.700');
+    background-color: theme('colors.surface.700');
     border-radius: 3px;
   }
 }

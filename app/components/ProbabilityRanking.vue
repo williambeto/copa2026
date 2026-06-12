@@ -1,115 +1,93 @@
 <template>
-  <section id="ranking" class="section-container" aria-labelledby="ranking-title">
-    <p class="section-label">Ranking</p>
-    <h2 id="ranking-title" class="section-title">
-      As dez seleções mais prováveis
-    </h2>
-    <p class="section-subtitle mb-12">
-      Probabilidade estimada de cada seleção vencer a Copa do Mundo FIFA 2026,
-      calculada com base no modelo analítico ponderado.
-    </p>
+  <section id="ranking" class="section-dark" aria-labelledby="ranking-heading">
+    <div class="section-inner-narrow">
+      <p class="section-label">Ranking</p>
+      <h2 id="ranking-heading" class="section-headline">
+        As dez seleções mais prováveis
+      </h2>
+      <p class="section-subhead mb-14">
+        Probabilidade estimada de cada seleção vencer a Copa do Mundo FIFA 2026,
+        calculada com base no modelo analítico ponderado.
+      </p>
 
-    <div class="space-y-5">
-      <div
-        v-for="(item, index) in rankedItems"
-        :key="item.team"
-        class="group"
-      >
-        <!-- Bar row -->
-        <div class="flex items-center gap-4">
-          <!-- Position -->
-          <span
-            class="w-8 h-8 flex items-center justify-center rounded-full text-xs font-bold shrink-0"
-            :class="index < 3
-              ? 'bg-gold-500 text-marine-950'
-              : 'bg-graphite-800 text-gray-400'"
-            :aria-label="`Posição ${index + 1}`"
-          >
-            {{ index + 1 }}
-          </span>
-
-          <!-- Flag -->
-          <span class="text-2xl shrink-0 leading-none" role="img" :aria-label="`Bandeira de ${item.team}`">
-            {{ item.flag }}
-          </span>
-
-          <!-- Team name -->
-          <span
-            class="text-sm sm:text-base font-semibold w-28 sm:w-32 shrink-0"
-            :class="index < 3 ? 'text-gold-400' : 'text-white'"
-          >
-            {{ item.team }}
-          </span>
-
-          <!-- Bar -->
-          <div class="flex-1 relative h-9 min-w-[80px]">
-            <div class="absolute inset-y-0 left-0 bg-marine-800/50 rounded-r-md w-full" />
-            <div
-              class="absolute inset-y-0 left-0 rounded-r-md transition-all duration-700 ease-out flex items-center"
-              :class="index < 3
-                ? 'bg-gradient-to-r from-gold-500/90 to-gold-400/70'
-                : 'bg-gradient-to-r from-blue-500/60 to-blue-400/40'"
-              :style="{ width: `${item.barWidth}%` }"
-            >
-              <span
-                v-if="item.barWidth > 18"
-                class="text-xs font-bold text-white font-mono ml-3"
-              >
-                {{ item.probability.toFixed(1).replace('.', ',') }}%
-              </span>
-            </div>
-          </div>
-
-          <!-- Percentage outside bar when bar is too narrow -->
-          <span
-            v-if="item.barWidth <= 18"
-            class="text-sm font-bold font-mono w-14 text-right shrink-0 text-white"
-          >
-            {{ item.probability.toFixed(1).replace('.', ',') }}%
-          </span>
-        </div>
-
-        <!-- Justification -->
-        <p
-          v-if="item.justification"
-          class="mt-1.5 ml-14 sm:ml-[4.5rem] text-xs sm:text-sm text-gray-500 leading-relaxed max-w-2xl"
+      <div class="divide-y divide-surface-800/40">
+        <div
+          v-for="(item, index) in rankedItems"
+          :key="item.team"
+          class="py-5 first:pt-0 last:pb-0"
+          :class="index < 3 ? 'pl-5 border-l-4 border-gold-500/70 -ml-px' : 'pl-5 border-l-4 border-transparent -ml-px'"
         >
-          {{ item.justification }}
-        </p>
-      </div>
-
-      <!-- Outras seleções -->
-      <div class="group pt-2 border-t border-graphite-800/50">
-        <div class="flex items-center gap-4">
-          <span class="w-8 h-8 flex items-center justify-center rounded-full text-xs font-bold shrink-0 bg-graphite-800 text-gray-500">
-            —
-          </span>
-          <span class="text-2xl shrink-0 leading-none" role="img" aria-label="Outras seleções">
-            {{ othersItem?.flag }}
-          </span>
-          <span class="text-sm sm:text-base font-semibold w-28 sm:w-32 shrink-0 text-gray-500">
-            {{ othersItem?.team }}
-          </span>
-          <div class="flex-1 relative h-9 min-w-[80px]">
-            <div class="absolute inset-y-0 left-0 bg-marine-800/50 rounded-r-md w-full" />
-            <div
-              class="absolute inset-y-0 left-0 rounded-r-md transition-all duration-700 ease-out bg-graphite-700/60 flex items-center"
-              :style="{ width: `${(othersItem?.probability ?? 0) / maxProbability * 100}%` }"
+          <div class="flex items-start gap-5">
+            <span
+              class="font-display font-extrabold leading-none shrink-0 mt-1"
+              :class="index < 3 ? 'text-3xl text-gold-500' : 'text-2xl text-surface-400'"
+              aria-label="Posição"
             >
-              <span class="text-xs font-bold text-gray-400 font-mono ml-3">
-                {{ othersItem?.probability.toFixed(1).replace('.', ',') }}%
-              </span>
+              {{ index + 1 }}
+            </span>
+
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ item.flag }}</span>
+                <span
+                  class="font-display font-bold leading-tight truncate"
+                  :class="index < 3 ? 'text-2xl text-white' : 'text-xl text-white'"
+                >
+                  {{ item.team }}
+                </span>
+                <span class="data-percent text-2xl ml-auto shrink-0">
+                  {{ item.probability.toFixed(1).replace('.', ',') }}%
+                </span>
+              </div>
+
+              <div class="flex items-center gap-3 mb-2">
+                <div class="strength-bar-track flex-1 max-w-xs">
+                  <div
+                    class="strength-bar-fill"
+                    :class="index < 3 ? 'strength-bar-fill-gold' : 'strength-bar-fill-blue'"
+                    :style="{ width: `${item.barWidth}%` }"
+                  />
+                </div>
+              </div>
+
+              <p class="text-sm text-gray-500 leading-relaxed max-w-xl">
+                {{ item.justification }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="py-5 pl-5 border-l-4 border-transparent -ml-px opacity-70">
+          <div class="flex items-start gap-5">
+            <span class="font-display font-extrabold text-2xl leading-none shrink-0 mt-1 text-surface-500">—</span>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ othersItem?.flag }}</span>
+                <span class="font-display font-bold text-xl leading-tight truncate text-gray-400">
+                  {{ othersItem?.team }}
+                </span>
+                <span class="data-percent text-2xl ml-auto shrink-0">
+                  {{ othersItem?.probability.toFixed(1).replace('.', ',') }}%
+                </span>
+              </div>
+              <div class="flex items-center gap-3 mb-1">
+                <div class="strength-bar-track flex-1 max-w-xs">
+                  <div
+                    class="strength-bar-fill strength-bar-fill-gold"
+                    :style="{ width: `${(othersItem?.probability ?? 0) / maxProbability * 100}%` }"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Note -->
-    <p class="mt-8 text-xs text-gray-600">
-      As probabilidades são estimativas analíticas baseadas no modelo ponderado descrito na metodologia.
-      Não representam certezas nem recomendações.
-    </p>
+      <p class="mt-10 text-xs text-gray-600">
+        As probabilidades são estimativas analíticas baseadas no modelo ponderado descrito na metodologia.
+        Não representam certezas nem recomendações.
+      </p>
+    </div>
   </section>
 </template>
 

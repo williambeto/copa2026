@@ -1,45 +1,50 @@
 <template>
-  <section id="metodologia" class="section-container-alt" aria-labelledby="methodology-heading">
-    <div class="max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="metodologia" class="section-dark" aria-labelledby="methodology-heading">
+    <div class="section-inner-narrow">
       <p class="section-label">Transparência</p>
-      <h2 id="methodology-heading" class="section-title">
+      <h2 id="methodology-heading" class="section-headline">
         Metodologia
       </h2>
 
-      <!-- Summary card -->
-      <div class="card-outline mb-6">
-        <p class="text-sm text-gray-300 leading-relaxed mb-3">
-          A projeção combina <strong class="text-white">sete fatores ponderados</strong>:
-          rankings FIFA e Elo, forma recente, qualidade e profundidade do elenco,
-          situação de lesões, técnico e modelo de jogo, dificuldade do grupo e
-          caminho no chaveamento, experiência em mata-mata, adaptação geográfica
-          e projeções de modelos estatísticos externos.
-        </p>
-        <div class="callout-info text-xs">
-          <span aria-hidden="true">&#9432;</span>
-          As probabilidades são estimativas analíticas e não representam certeza,
-          recomendação financeira ou orientação de aposta.
-        </div>
+      <p class="section-subhead mt-2 mb-8">
+        A projeção combina <strong class="text-white">sete fatores ponderados</strong>:
+        rankings FIFA e Elo, forma recente, qualidade e profundidade do elenco,
+        situação de lesões, técnico e modelo de jogo, dificuldade do grupo e
+        caminho no chaveamento, experiência em mata-mata, adaptação geográfica
+        e projeções de modelos estatísticos externos.
+      </p>
+
+      <div class="callout-info mb-10">
+        <span aria-hidden="true">&#9432;</span>
+        As probabilidades são estimativas analíticas e não representam certeza,
+        recomendação financeira ou orientação de aposta. O ranking editorial utiliza os pesos padrão abaixo.
       </div>
 
-      <!-- Default weights summary -->
-      <div class="card-outline mb-6">
-        <h3 class="text-base font-semibold text-white mb-4">Pesos do modelo</h3>
-        <div class="space-y-2">
-          <div v-for="item in weightSummary" :key="item.label" class="flex items-center justify-between text-sm">
-            <span class="text-gray-400">{{ item.label }}</span>
+      <!-- Default weights -->
+      <div class="editorial-card-accent p-6 mb-10">
+        <h3 class="text-base font-display font-bold text-white mb-5">Pesos do modelo editorial</h3>
+        <div class="space-y-3">
+          <div
+            v-for="item in weightSummary"
+            :key="item.label"
+            class="flex items-center justify-between text-sm"
+          >
+            <span class="text-gray-300 font-medium">{{ item.label }}</span>
             <div class="flex items-center gap-3">
-              <div class="w-24 progress-track">
-                <div class="progress-fill progress-fill-gold" :style="{ width: `${item.default}%` }" />
+              <div class="strength-bar-track w-28">
+                <div
+                  class="strength-bar-fill strength-bar-fill-gold"
+                  :style="{ width: `${item.default}%`, minWidth: item.default > 0 ? '4px' : '0' }"
+                />
               </div>
-              <span class="data-value text-xs w-10 text-right">{{ item.default }}%</span>
+              <span class="data-value text-xs w-8 text-right text-gold-400">{{ item.default }}%</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Accordion: detailed weight simulator -->
-      <div class="card-outline">
+      <!-- Accordion: simulator -->
+      <div class="border-t border-surface-800/40 pt-6">
         <button
           type="button"
           class="accordion-trigger w-full"
@@ -47,21 +52,21 @@
           aria-controls="simulator-panel"
           @click="showSimulator = !showSimulator"
         >
-          <span>Simulador de pesos interativo</span>
+          <span>Crie sua própria simulação</span>
           <span class="text-lg transition-transform duration-300" :class="{ 'rotate-180': showSimulator }" aria-hidden="true">▾</span>
         </button>
 
         <div
           id="simulator-panel"
           class="accordion-content"
-          :style="{ maxHeight: showSimulator ? '2000px' : '0', opacity: showSimulator ? 1 : 0 }"
+          :style="{ maxHeight: showSimulator ? '2600px' : '0', opacity: showSimulator ? 1 : 0 }"
           role="region"
           :aria-hidden="!showSimulator"
         >
           <div class="accordion-content-inner space-y-5 pt-2">
-            <p class="text-sm text-gray-500">
+            <p class="text-sm">
               Modifique os pesos de cada fator e recalcule para ver uma simulação personalizada.
-              Os valores devem somar 100.
+              Os valores devem somar 100. O ranking editorial oficial usa os pesos padrão.
             </p>
 
             <div class="space-y-5">
@@ -69,7 +74,7 @@
                 <div class="flex items-center justify-between text-sm">
                   <label
                     :for="`weight-${item.key}`"
-                    class="text-gray-300 font-medium cursor-help border-b border-dotted border-gray-600"
+                    class="text-gray-300 font-medium border-b border-dotted border-gray-600"
                     :title="item.description"
                   >
                     {{ item.label }}
@@ -85,13 +90,13 @@
                     min="0"
                     max="100"
                     :value="item.value"
-                    class="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-gold-500"
+                    class="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-gold-500 bg-surface-800/60"
                     :aria-label="`Peso para ${item.label}`"
                     @input="updateWeight(item.key, $event)"
                   />
                   <button
                     type="button"
-                    class="px-2 py-1 text-xs rounded hover:bg-graphite-800 text-gray-500 hover:text-gray-300"
+                    class="px-2 py-1 text-xs rounded hover:bg-surface-800 text-gray-500 hover:text-gray-300"
                     :aria-label="`Redefinir ${item.label}`"
                     @click="resetWeight(item.key)"
                   >
@@ -101,8 +106,11 @@
               </div>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="px-3 py-1.5 rounded-lg text-xs font-medium" :class="sumClass">
+            <div class="flex items-center gap-3 pb-2">
+              <div
+                class="px-3 py-1.5 rounded-sm text-xs font-medium"
+                :class="totalWeight === 100 ? 'stat-badge-neutral bg-green-500/15 text-green-400 border-green-500/25' : 'bg-red-500/15 text-red-400 border-red-500/25'"
+              >
                 Soma: {{ totalWeight }}/100
               </div>
               <p v-if="totalWeight !== 100" class="text-xs text-red-400" role="alert">
@@ -113,8 +121,7 @@
             <div class="flex gap-3">
               <button
                 type="button"
-                class="px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
-                :class="totalWeight === 100 ? 'bg-gold-600 text-marine-950 hover:bg-gold-500' : 'bg-graphite-800 text-gray-500'"
+                class="btn-primary text-sm disabled:opacity-40 disabled:cursor-not-allowed"
                 :disabled="totalWeight !== 100"
                 @click="recalculate"
               >
@@ -122,27 +129,29 @@
               </button>
               <button
                 type="button"
-                class="px-6 py-2.5 rounded-lg font-semibold text-sm border border-graphite-700 text-gray-400 hover:text-white hover:border-graphite-600 transition-all duration-200"
+                class="btn-outline text-sm"
                 @click="resetAll"
               >
                 Restaurar pesos padrão
               </button>
             </div>
 
-            <!-- Recalculated ranking -->
-            <div v-if="recalculatedRanking.length > 0" class="card-outline mt-4">
-              <h4 class="text-base font-semibold text-white mb-3">Simulação personalizada</h4>
+            <div v-if="recalculatedRanking.length > 0" class="editorial-card-border p-5 mt-4">
+              <h4 class="text-base font-display font-bold text-white mb-3">Simulação personalizada</h4>
               <ol class="space-y-2">
                 <li
                   v-for="(item, idx) in recalculatedRanking"
                   :key="item.team"
-                  class="flex items-center gap-3 p-2.5 rounded-lg bg-graphite-900/60"
+                  class="flex items-center gap-3 p-2.5 rounded-sm bg-surface-800/30"
                 >
-                  <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0" :class="idx === 0 ? 'bg-gold-500 text-marine-950' : 'bg-graphite-800 text-gray-400'">
+                  <span
+                    class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                    :class="idx === 0 ? 'bg-gold-500 text-navy-950' : 'bg-surface-800 text-gray-400'"
+                  >
                     {{ idx + 1 }}
                   </span>
                   <span class="font-semibold text-gray-200 flex-1 text-sm">{{ item.flag }} {{ item.team }}</span>
-                  <span class="text-sm font-mono text-gold-400">{{ item.score }}</span>
+                  <span class="text-sm font-mono text-gold-400 data-value">{{ item.score }}</span>
                 </li>
               </ol>
               <p class="mt-4 text-xs text-gray-500">
@@ -193,11 +202,6 @@ const weightItems = computed<WeightItem[]>(() =>
 const totalWeight = computed(() =>
   METHODOLOGY_WEIGHTS.reduce((sum, w) => sum + weights.value[w.key], 0)
 )
-
-const sumClass = computed(() => {
-  if (totalWeight.value === 100) return 'bg-green-900/40 text-green-400 border border-green-800/60'
-  return 'bg-red-900/30 text-red-400 border border-red-800/40'
-})
 
 function updateWeight(key: keyof WeightConfig, event: Event) {
   const target = event.target as HTMLInputElement

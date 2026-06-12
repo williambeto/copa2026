@@ -1,23 +1,22 @@
 <template>
-  <section class="section-container" aria-labelledby="conclusion-heading">
-    <div class="max-w-[960px] mx-auto">
+  <section class="section-dark" aria-labelledby="conclusion-heading">
+    <div class="section-inner-narrow">
       <p class="section-label">Conclusão</p>
-      <h2 id="conclusion-heading" class="section-title-lg mb-12">
+      <h2 id="conclusion-heading" class="section-headline mt-2 mb-8">
         A seleção mais provável hoje é a Espanha
       </h2>
 
-      <!-- Main editorial card -->
-      <div class="card-highlight border-l-4 border-gold-500 mb-10">
-        <p class="text-lg sm:text-xl text-gray-200 leading-relaxed font-medium">
-          Se fosse necessário escolher uma seleção apenas com base nos dados disponíveis hoje,
-          a escolha seria a <strong class="text-gold-500">Espanha</strong>.
-        </p>
-      </div>
+      <blockquote class="pull-quote mb-10">
+        "Se fosse necessário escolher uma seleção apenas com base nos dados disponíveis hoje,
+        a escolha seria a Espanha."
+      </blockquote>
 
-      <!-- Reasons grid -->
-      <div class="grid sm:grid-cols-2 gap-5 mb-10">
-        <div class="card-outline">
-          <h3 class="text-base font-semibold text-white mb-4">Por que a Espanha lidera</h3>
+      <div class="grid md:grid-cols-2 gap-8 mb-10">
+        <div>
+          <h3 class="text-base font-display font-bold text-white mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400" aria-hidden="true" />
+            Por que a Espanha lidera
+          </h3>
           <ul class="space-y-2.5" role="list">
             <li
               v-for="reason in reasons"
@@ -30,12 +29,11 @@
           </ul>
         </div>
 
-        <!-- Risk alert -->
         <div class="callout-warning" role="alert">
           <div class="flex items-start gap-3">
             <span class="text-amber-400 text-lg mt-0.5 shrink-0" aria-hidden="true">&#9888;</span>
             <div>
-              <h3 class="text-amber-400 font-semibold mb-2 text-sm">
+              <h3 class="text-amber-400 font-display font-bold mb-2 text-sm">
                 Principal risco de esta conclusão estar errada
               </h3>
               <p class="text-sm text-gray-400 leading-relaxed">
@@ -51,8 +49,9 @@
         </div>
       </div>
 
-      <!-- Closing statement -->
-      <p class="text-sm text-gray-500 text-center max-w-lg mx-auto leading-relaxed">
+      <div class="hr-gold mx-auto" />
+
+      <p class="mt-6 text-sm text-gray-500 text-center max-w-lg mx-auto leading-relaxed">
         A Copa do Mundo permanece um torneio de alta imprevisibilidade.
         Nenhuma candidata possui probabilidade dominante, e fatores como lesões,
         chaveamento e desempenho em jogos únicos podem alterar radicalmente o cenário.

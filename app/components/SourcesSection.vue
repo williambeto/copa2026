@@ -1,31 +1,31 @@
 <template>
-  <section id="fontes" class="section-container" aria-labelledby="sources-heading">
-    <div class="max-w-[960px] mx-auto">
+  <section id="fontes" class="section-light" aria-labelledby="sources-heading">
+    <div class="section-inner-narrow">
       <p class="section-label">Transparência</p>
-      <h2 id="sources-heading" class="section-title">
+      <h2 id="sources-heading" class="section-headline">
         Fontes
       </h2>
-      <p class="section-subtitle mb-8">
+      <p class="section-subhead mt-2 mb-8">
         Transparência sobre a origem de cada dado utilizado na análise.
       </p>
 
-      <!-- Summary of key sources -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-6">
+      <!-- Key sources -->
+      <div class="flex flex-wrap gap-3 mb-8">
         <a
           v-for="source in keySources"
           :key="source.name"
           :href="source.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="card-outline hover:border-graphite-600 transition-colors duration-200 text-center py-4"
+          class="tag-gold text-sm hover:bg-gold-500/25 transition-colors duration-200"
         >
-          <span class="block text-sm font-semibold text-gold-400 hover:text-gold-300">{{ source.name }}</span>
-          <span class="block text-xs text-gray-500 mt-1">{{ source.categoryTag }}</span>
+          {{ source.name }}
+          <span class="text-[10px] text-gold-400/70 ml-1.5">{{ source.categoryTag }}</span>
         </a>
       </div>
 
-      <!-- Accordion: full sources list -->
-      <div class="card-outline">
+      <!-- Accordion: full sources -->
+      <div class="border-t border-gray-200 pt-6">
         <button
           type="button"
           class="accordion-trigger w-full"
@@ -45,28 +45,22 @@
           :aria-hidden="!showFullSources"
         >
           <div class="accordion-content-inner">
-            <div class="space-y-8">
+            <div class="space-y-6 pt-4">
               <div v-for="category in sourceCategories" :key="category.name">
-                <h4 class="text-sm font-semibold text-white mb-3 flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-500" aria-hidden="true" />
+                <h4 class="text-sm font-display font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-600" aria-hidden="true" />
                   {{ category.name }}
                 </h4>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div class="flex flex-wrap gap-2">
                   <a
                     v-for="source in category.sources"
                     :key="source.url"
                     :href="source.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="flex items-center justify-between gap-3 p-3 rounded-lg bg-graphite-950/50 hover:bg-graphite-800/50 transition-colors duration-200"
+                    class="tag-flag text-sm hover:bg-gray-200 transition-colors duration-200"
                   >
-                    <div class="min-w-0">
-                      <span class="block text-sm font-medium text-gray-300 truncate">{{ source.name }}</span>
-                      <span class="block text-xs text-gray-600">Coleta: {{ source.collectionDate }}</span>
-                    </div>
-                    <span class="shrink-0 px-2 py-0.5 rounded-full text-xs bg-graphite-800 text-gray-500">
-                      {{ source.categoryTag }}
-                    </span>
+                    {{ source.name }}
                   </a>
                 </div>
               </div>
@@ -75,7 +69,7 @@
         </div>
       </div>
 
-      <p class="mt-6 text-xs text-gray-600 text-center">
+      <p class="mt-8 text-xs text-gray-500 text-center">
         Dados atualizados em 12 de junho de 2026. Cada dado sensível ao tempo inclui fonte e data da coleta.
       </p>
     </div>
