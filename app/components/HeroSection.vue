@@ -4,201 +4,163 @@
     class="relative min-h-screen flex items-center overflow-hidden"
     aria-labelledby="hero-title"
   >
-    <!-- Gradient overlay -->
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-marine-950 via-marine-950/90 to-transparent pointer-events-none"
-      aria-hidden="true"
-    />
-
-    <!-- Abstract decorative SVG -->
+    <!-- Background decorative elements -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <!-- Golden trophy silhouette -->
-      <svg
-        class="absolute -top-10 right-0 lg:right-10 w-72 h-72 lg:w-96 lg:h-96 text-gold-500/5"
-        viewBox="0 0 200 200"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <!-- Trophy silhouette -->
+      <svg class="absolute -top-10 right-0 lg:right-10 w-80 h-80 lg:w-[500px] lg:h-[500px] text-gold-500/[0.04]" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M100 10 L115 55 L165 55 L125 85 L140 130 L100 105 L60 130 L75 85 L35 55 L85 55 Z" />
         <circle cx="100" cy="145" r="18" />
         <rect x="88" y="160" width="24" height="30" rx="3" />
       </svg>
-      <!-- Hexagonal data pattern -->
-      <svg
-        class="absolute -bottom-20 -left-10 w-80 h-80 text-blue-400/5"
-        viewBox="0 0 200 200"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <polygon points="100,10 180,55 180,135 100,180 20,135 20,55" />
-        <polygon points="100,40 165,75 165,125 100,160 35,125 35,75" />
+      <!-- North America map outline -->
+      <svg class="absolute bottom-0 left-0 w-96 h-96 text-blue-400/[0.03]" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,30 Q60,10 90,15 Q110,12 120,25 Q130,35 125,60 Q128,80 115,95 Q105,115 95,130 Q90,150 75,165 Q55,170 40,155 Q25,140 30,120 Q28,100 20,80 Q15,60 25,45 Q32,32 50,30Z" />
+        <path d="M30,70 Q40,65 55,60 Q65,50 70,65 Q68,80 55,88 Q45,90 30,85Z" fill="currentColor" fill-opacity="0.3"/>
+        <circle cx="65" cy="45" r="2" />
+        <circle cx="105" cy="75" r="2" />
+        <circle cx="72" cy="110" r="2" />
+        <circle cx="50" cy="95" r="1.5" />
+        <circle cx="38" cy="58" r="1.5" />
       </svg>
-      <!-- Pitch lines -->
-      <svg
-        class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-96 text-green-400/3"
-        viewBox="0 0 400 200"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect x="5" y="5" width="390" height="190" rx="2" />
-        <line x1="200" y1="5" x2="200" y2="195" />
-        <circle cx="200" cy="100" r="30" />
-        <rect x="5" y="45" width="60" height="110" />
-        <rect x="335" y="45" width="60" height="110" />
+      <!-- Data grid pattern -->
+      <svg class="absolute top-1/4 right-1/4 w-64 h-64 text-white/[0.02]" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="0.8" fill="currentColor"/></pattern></defs>
+        <rect width="100" height="100" fill="url(#grid)"/>
       </svg>
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 w-full section-container pt-28 pb-16 lg:pt-32 lg:pb-24">
-      <div class="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
-        <!-- Left column: title, subtitle, mini bar -->
-        <div class="lg:col-span-3 space-y-8 animate-fade-in">
-          <!-- Overlabel -->
-          <p class="text-sm font-mono uppercase tracking-widest text-gold-500">
-            Análise de probabilidades
-          </p>
+    <div class="relative z-10 w-full section-container pt-32 pb-20 lg:pt-40 lg:pb-32">
+      <div class="max-w-[1200px] mx-auto">
+        <!-- Overlabel -->
+        <p class="section-label mb-6 animate-fade-in">
+          World Cup 2026 · Análise editorial
+        </p>
 
-          <h1
-            id="hero-title"
-            class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight text-balance"
-          >
-            Quem tem a maior probabilidade de vencer a Copa do Mundo de 2026?
-          </h1>
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <!-- Left: Title and context -->
+          <div class="lg:col-span-7 space-y-8 animate-fade-in">
+            <h1
+              id="hero-title"
+              class="text-[2.25rem] sm:text-[2.75rem] lg:text-[3.5rem] xl:text-[3.75rem] font-extrabold text-white leading-[1.08] tracking-tight text-balance"
+            >
+              Quem tem a maior probabilidade de vencer a Copa do Mundo de 2026?
+            </h1>
 
-          <p class="text-lg text-gray-400 max-w-2xl text-balance">
-            Uma análise baseada em rankings, desempenho recente, qualidade do elenco,
-            lesões, técnicos, grupos e caminhos possíveis até a final.
-          </p>
-
-          <!-- Mini bar chart -->
-          <div class="space-y-3" aria-label="Distribuição de probabilidades entre seleções">
-            <p class="text-sm font-semibold text-gray-300 font-mono uppercase tracking-wide">
-              Distribuição de probabilidades
+            <p class="text-base sm:text-lg text-gray-400 max-w-xl leading-relaxed">
+              Uma análise baseada em rankings, desempenho recente, qualidade do elenco,
+              lesões, técnicos, grupos e caminhos possíveis até a final.
             </p>
-            <div class="space-y-2.5">
-              <div
-                v-for="bar in probabilityBars"
-                :key="bar.label"
-                class="flex items-center gap-3"
-              >
-                <span class="w-20 flex-shrink-0 text-xs text-gray-400 text-right font-mono">
-                  {{ bar.label }}
-                </span>
-                <div class="flex-1 h-6 bg-marine-800/60 rounded-full overflow-hidden">
-                  <div
-                    class="h-full rounded-full transition-all duration-1000 ease-out"
-                    :class="[bar.color]"
-                    :style="{ width: bar.percent + '%' }"
-                  >
-                    <span
-                      v-if="bar.percent > 5"
-                      class="text-xs font-bold px-2 leading-6 text-white font-mono"
+
+            <!-- Mini probability bars -->
+            <div class="pt-4 space-y-3 max-w-lg" aria-label="Distribuição de probabilidades entre as principais seleções">
+              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+                Nenhuma seleção ultrapassa 20%
+              </p>
+              <div class="space-y-2">
+                <div
+                  v-for="bar in probabilityBars"
+                  :key="bar.label"
+                  class="flex items-center gap-3"
+                >
+                  <span class="w-20 flex-shrink-0 text-xs text-gray-500 text-right font-mono">
+                    {{ bar.label }}
+                  </span>
+                  <div class="flex-1 h-7 bg-marine-800/50 rounded-full overflow-hidden">
+                    <div
+                      class="h-full rounded-full flex items-center justify-end pr-3 transition-all duration-1000 ease-out"
+                      :class="[bar.color]"
+                      :style="{ width: bar.percent + '%', minWidth: bar.percent > 0 ? '30px' : '0' }"
                     >
-                      {{ bar.value }}%
-                    </span>
+                      <span
+                        v-if="bar.percent > 6"
+                        class="text-xs font-bold text-white font-mono"
+                      >
+                        {{ bar.value }}%
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-wrap gap-4 pt-6">
+              <a
+                href="#ranking"
+                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gold-500 text-marine-950 font-bold text-sm sm:text-base hover:bg-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+              >
+                Ver ranking completo
+                <span aria-hidden="true" class="text-lg">→</span>
+              </a>
+              <a
+                href="#metodologia"
+                class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-graphite-700 text-gray-300 font-semibold text-sm sm:text-base hover:border-gold-500/50 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+              >
+                Entender a metodologia
+              </a>
+            </div>
           </div>
 
-          <!-- CTA buttons -->
-          <div class="flex flex-wrap gap-4 pt-4">
-            <a
-              href="#ranking"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gold-500 text-marine-950 font-bold text-sm hover:bg-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+          <!-- Right: Highlight card -->
+          <div class="lg:col-span-5 animate-slide-up" style="animation-delay: 250ms">
+            <article
+              class="card-highlight relative overflow-hidden"
+              aria-labelledby="highlight-heading"
             >
-              Ver ranking completo
-              <span aria-hidden="true">↓</span>
-            </a>
-            <a
-              href="#metodologia"
-              class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-600 text-gray-300 font-semibold text-sm hover:border-gold-500 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
-            >
-              Entender a metodologia
-              <span aria-hidden="true">↓</span>
-            </a>
+              <!-- Corner accents -->
+              <div class="absolute top-0 left-0 w-1.5 h-16 bg-gradient-to-b from-gold-500 to-transparent" aria-hidden="true" />
+              <div class="absolute top-0 left-0 w-16 h-1.5 bg-gradient-to-r from-gold-500 to-transparent" aria-hidden="true" />
+
+              <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-gold-500 mb-5">
+                <span aria-hidden="true" class="text-base">⚽</span>
+                Principal conclusão
+              </span>
+
+              <h2 id="highlight-heading" class="text-2xl sm:text-[1.75rem] font-bold text-white mb-8 leading-tight">
+                Espanha aparece como a seleção mais provável
+              </h2>
+
+              <dl class="space-y-5">
+                <div class="flex items-center justify-between py-1">
+                  <dt class="text-sm text-gray-400">Probabilidade estimada</dt>
+                  <dd class="text-[1.75rem] font-bold text-gold-500 font-mono">16,5%</dd>
+                </div>
+
+                <div class="flex items-center justify-between py-1 border-t border-graphite-800/50">
+                  <dt class="text-sm text-gray-400">Ranking Elo</dt>
+                  <dd class="text-base font-semibold text-white font-mono">1º lugar</dd>
+                </div>
+
+                <div class="flex items-center justify-between py-1 border-t border-graphite-800/50">
+                  <dt class="text-sm text-gray-400">Ranking FIFA</dt>
+                  <dd class="text-base font-semibold text-white font-mono">2º lugar</dd>
+                </div>
+
+                <div class="flex items-center justify-between py-1 border-t border-graphite-800/50">
+                  <dt class="text-sm text-gray-400">Título recente</dt>
+                  <dd class="text-base font-semibold text-green-400">Campeã da Euro 2024</dd>
+                </div>
+
+                <div class="flex items-start justify-between py-1 border-t border-graphite-800/50">
+                  <dt class="text-sm text-gray-400 pt-0.5">Nível de confiança</dt>
+                  <dd class="text-sm font-medium text-gray-300 text-right max-w-[200px] leading-relaxed">
+                    Favorita, mas sem domínio absoluto
+                  </dd>
+                </div>
+              </dl>
+
+              <p class="mt-6 pt-5 border-t border-graphite-800/50 text-xs text-gray-500 leading-relaxed">
+                Nenhuma candidata possui probabilidade dominante. A Copa permanece aberta e imprevisível.
+              </p>
+            </article>
           </div>
-        </div>
-
-        <!-- Right column: highlight card -->
-        <div class="lg:col-span-2 animate-slide-up" style="animation-delay: 200ms">
-          <article
-            class="relative overflow-hidden rounded-2xl border border-gold-500/20 bg-gradient-to-br from-marine-900/90 to-graphite-900/90 backdrop-blur-md p-6 sm:p-8"
-            aria-labelledby="highlight-heading"
-          >
-            <!-- Gold corner accent -->
-            <div
-              class="absolute top-0 left-0 w-1 h-12 bg-gradient-to-b from-gold-500 to-transparent"
-              aria-hidden="true"
-            />
-            <div
-              class="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-gold-500 to-transparent"
-              aria-hidden="true"
-            />
-
-            <span class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-gold-500 mb-4">
-              <span aria-hidden="true">🥇</span>
-              Destaque
-            </span>
-
-            <h2 id="highlight-heading" class="text-xl sm:text-2xl font-bold text-white mb-6">
-              Espanha aparece como a seleção mais provável
-            </h2>
-
-            <dl class="space-y-4">
-              <!-- Probability -->
-              <div class="flex items-center justify-between">
-                <dt class="text-sm text-gray-400">Probabilidade</dt>
-                <dd class="text-2xl font-bold text-gold-500 font-mono">16,5%</dd>
-              </div>
-
-              <!-- Elo ranking -->
-              <div class="flex items-center justify-between">
-                <dt class="text-sm text-gray-400">Ranking Elo</dt>
-                <dd class="text-base font-semibold text-white font-mono">1º</dd>
-              </div>
-
-              <!-- FIFA ranking -->
-              <div class="flex items-center justify-between">
-                <dt class="text-sm text-gray-400">Ranking FIFA</dt>
-                <dd class="text-base font-semibold text-white font-mono">2º</dd>
-              </div>
-
-              <!-- Recent title -->
-              <div class="flex items-center justify-between">
-                <dt class="text-sm text-gray-400">Título recente</dt>
-                <dd class="text-base font-semibold text-green-400">Campeã da Euro 2024</dd>
-              </div>
-
-              <!-- Divider -->
-              <hr class="border-marine-700/50" aria-hidden="true" />
-
-              <!-- Confidence -->
-              <div class="flex items-center justify-between">
-                <dt class="text-sm text-gray-400">Confiança</dt>
-                <dd class="text-sm font-medium text-gray-300 text-right max-w-[180px]">
-                  Favorita, mas sem domínio absoluto
-                </dd>
-              </div>
-            </dl>
-
-            <!-- No team exceeds 20% note -->
-            <p class="mt-5 pt-4 border-t border-marine-700/50 text-xs text-gray-500">
-              Nenhuma seleção ultrapassa 20% de probabilidade. O torneio segue aberto e imprevisível.
-            </p>
-          </article>
         </div>
       </div>
     </div>
 
-    <!-- Bottom fade -->
-    <div
-      class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-marine-950 to-transparent pointer-events-none"
-      aria-hidden="true"
-    />
+    <!-- Bottom gradient -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-marine-950 to-transparent pointer-events-none" aria-hidden="true" />
   </section>
 </template>
 

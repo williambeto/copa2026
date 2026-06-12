@@ -3,20 +3,19 @@
     <HeroSection />
     <ExecutiveSummary />
     <ProbabilityRanking />
+    <RationalTopThree />
     <TeamsComparisonTable />
     <RankingExplanation />
     <TeamProfileSection />
     <GroupDifficulty />
     <TournamentPath />
     <RecentFormChart />
-    <SquadDepth />
     <InjuryTracker />
-    <GeographicFactor />
-    <RationalTopThree />
     <HiddenContenders />
     <UpsetRisk />
-    <ConclusionSection />
+    <GeographicFactor />
     <MethodologySection />
+    <ConclusionSection />
     <SourcesSection />
   </div>
 </template>

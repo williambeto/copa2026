@@ -9,6 +9,7 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -24,6 +25,8 @@
 
   body {
     @apply bg-marine-950 text-gray-200 antialiased;
+    font-size: 1rem;
+    line-height: 1.65;
   }
 
   .light body,
@@ -41,26 +44,49 @@
 }
 
 @layer components {
+  /* ===== Section containers with visual variety ===== */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
   }
 
+  .section-container-narrow {
+    @apply max-w-[960px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28;
+  }
+
+  .section-container-alt {
+    @apply max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 bg-graphite-950/30;
+  }
+
+  .section-container-full {
+    @apply py-20 lg:py-28;
+  }
+
+  /* ===== Typography ===== */
   .section-title {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4;
+    @apply text-[1.75rem] sm:text-[2rem] lg:text-[2.25rem] font-extrabold text-white mb-4 leading-tight tracking-tight;
   }
 
   .light .section-title {
     @apply text-gray-900;
   }
 
+  .section-title-lg {
+    @apply text-[2rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold text-white mb-4 leading-tight tracking-tight;
+  }
+
   .section-subtitle {
-    @apply text-gray-400 text-lg max-w-3xl;
+    @apply text-gray-400 text-base sm:text-lg max-w-3xl leading-relaxed;
   }
 
   .light .section-subtitle {
     @apply text-gray-600;
   }
 
+  .section-label {
+    @apply text-xs sm:text-sm font-mono uppercase tracking-[0.15em] text-gold-500 mb-3;
+  }
+
+  /* ===== Cards with visual variety ===== */
   .card {
     @apply bg-graphite-900/80 border border-graphite-800 rounded-xl p-6 backdrop-blur-sm;
   }
@@ -77,14 +103,60 @@
     @apply hover:border-gray-300 hover:bg-gray-50;
   }
 
+  .card-highlight {
+    @apply bg-graphite-900/90 border border-gold-500/20 rounded-2xl p-6 sm:p-8 backdrop-blur-md;
+  }
+
+  .light .card-highlight {
+    @apply bg-white border-gold-500/30 shadow-md;
+  }
+
+  .card-outline {
+    @apply border border-graphite-800 rounded-xl p-6;
+  }
+
+  .light .card-outline {
+    @apply border-gray-200;
+  }
+
+  .card-plain {
+    @apply rounded-xl p-6;
+  }
+
+  /* ===== Badges ===== */
   .badge {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
   }
 
+  /* ===== Accordion ===== */
+  .accordion-trigger {
+    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-semibold text-white
+           hover:text-gold-400 transition-colors duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
+  }
+
+  .light .accordion-trigger {
+    @apply text-gray-900 hover:text-gold-600;
+  }
+
+  .accordion-content {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+  }
+
+  .accordion-content-inner {
+    @apply pb-4 text-sm text-gray-300 leading-relaxed;
+  }
+
+  .light .accordion-content-inner {
+    @apply text-gray-600;
+  }
+
+  /* ===== Tooltips ===== */
   .tooltip-trigger {
     @apply cursor-help border-b border-dotted border-gray-500;
   }
 
+  /* ===== Skeleton loading ===== */
   .skeleton {
     @apply animate-pulse bg-graphite-800 rounded;
   }
@@ -92,10 +164,92 @@
   .light .skeleton {
     @apply bg-gray-200;
   }
+
+  /* ===== Semantic colors ===== */
+  .text-positive { @apply text-green-400; }
+  .text-warning { @apply text-amber-400; }
+  .text-danger { @apply text-red-400; }
+  .text-info { @apply text-blue-400; }
+  .text-accent { @apply text-gold-500; }
+  .text-muted { @apply text-gray-500; }
+
+  .bg-positive-subtle { @apply bg-green-500/10 border border-green-500/20; }
+  .bg-warning-subtle { @apply bg-amber-500/10 border border-amber-500/20; }
+  .bg-danger-subtle { @apply bg-red-500/10 border border-red-500/20; }
+  .bg-info-subtle { @apply bg-blue-500/10 border border-blue-500/20; }
+  .bg-accent-subtle { @apply bg-gold-500/10 border border-gold-500/20; }
+
+  /* ===== Data display ===== */
+  .data-value {
+    @apply font-mono font-semibold text-white tabular-nums;
+  }
+
+  .light .data-value {
+    @apply text-gray-900;
+  }
+
+  .data-label {
+    @apply text-xs text-gray-500 uppercase tracking-wider;
+  }
+
+  /* ===== Divider ===== */
+  .section-divider {
+    @apply border-t border-graphite-800/50 my-12;
+  }
+
+  /* ===== Callout ===== */
+  .callout {
+    @apply rounded-xl p-5 text-sm leading-relaxed;
+  }
+
+  .callout-info {
+    @apply callout bg-blue-500/5 border border-blue-500/15 text-blue-200;
+  }
+
+  .callout-warning {
+    @apply callout bg-amber-500/5 border border-amber-500/15 text-amber-200;
+  }
+
+  .callout-danger {
+    @apply callout bg-red-500/5 border border-red-500/15 text-red-200;
+  }
+
+  /* ===== Progress bar ===== */
+  .progress-track {
+    @apply h-2 bg-marine-800/60 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  .progress-fill-gold { @apply bg-gold-500; }
+  .progress-fill-green { @apply bg-green-500; }
+  .progress-fill-blue { @apply bg-blue-500; }
+  .progress-fill-red { @apply bg-red-500; }
+  .progress-fill-gray { @apply bg-gray-500; }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.graphite.700') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.graphite.700');
+    border-radius: 3px;
   }
 }
