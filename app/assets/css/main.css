@@ -5,22 +5,22 @@
 @layer base {
   /* ===== Light theme (default) ===== */
   :root {
-    --color-bg: 244 241 232;
-    --color-bg-muted: 237 232 220;
+    --color-bg: 247 247 243;
+    --color-bg-muted: 236 233 225;
     --color-surface: 255 255 255;
     --color-surface-elevated: 250 248 242;
     --color-surface-highlight: 255 245 214;
     --color-text-primary: 16 24 32;
     --color-text-secondary: 63 75 85;
-    --color-text-muted: 107 114 128;
-    --color-border: 217 212 200;
+    --color-text-muted: 102 113 122;
+    --color-border: 216 213 204;
     --color-border-strong: 184 177 164;
-    --color-accent: 201 149 32;
+    --color-accent: 201 154 46;
     --color-accent-foreground: 16 24 32;
-    --color-success: 36 122 82;
+    --color-success: 47 125 90;
     --color-warning: 183 121 31;
-    --color-danger: 184 64 64;
-    --color-chart-grid: 216 211 200;
+    --color-danger: 185 71 71;
+    --color-chart-grid: 216 213 204;
     --color-chart-label: 63 75 85;
     --color-chart-tooltip-bg: 16 24 32;
     --color-chart-tooltip-text: 248 250 252;
@@ -28,7 +28,7 @@
     color-scheme: light;
   }
 
-  /* ===== Dark theme ===== */
+  /* ===== Dark theme — NOT MODIFIED ===== */
   .dark {
     --color-bg: 7 19 31;
     --color-bg-muted: 11 27 41;
@@ -71,7 +71,7 @@
 
   body {
     @apply bg-semantic-background text-semantic-text-primary antialiased;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.7;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -99,34 +99,42 @@
     @apply py-section lg:py-section-lg bg-semantic-background-muted;
   }
 
-  /* Override section-light when dark — same as background to maintain rhythm */
   .dark .section-light {
     @apply bg-semantic-background-muted;
   }
 
   .section-inner {
-    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10;
   }
 
   .section-inner-narrow {
-    @apply max-w-[760px] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[820px] mx-auto px-4 sm:px-6 lg:px-10;
   }
 
   .section-inner-wide {
-    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10;
+  }
+
+  /* Section accent for rhythm — subtle visual separator */
+  .section-dark + .section-light {
+    @apply relative;
+  }
+  .section-dark + .section-light::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-semantic-border/40;
   }
 
   /* ===== Typography ===== */
   .section-label {
-    @apply font-display text-xs uppercase tracking-[0.2em] text-semantic-accent mb-4 font-semibold;
+    @apply font-display text-xs sm:text-sm uppercase tracking-[0.2em] text-semantic-accent mb-5 font-semibold;
   }
 
   .section-headline {
-    @apply font-display text-section lg:text-section-lg font-extrabold leading-tight tracking-tight text-semantic-text-primary;
+    @apply font-display text-section lg:text-section-lg font-extrabold leading-tight tracking-tight text-semantic-text-primary text-balance;
   }
 
   .section-subhead {
-    @apply font-sans text-body-lg text-semantic-text-secondary max-w-2xl leading-relaxed;
+    @apply font-sans text-body-lg text-semantic-text-secondary max-w-3xl leading-relaxed;
   }
 
   .heading-serif {
@@ -166,7 +174,7 @@
 
   /* ===== Stat badges ===== */
   .stat-badge {
-    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-sm font-semibold;
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-sm text-sm font-semibold;
   }
 
   .stat-badge-gold {
@@ -188,7 +196,7 @@
 
   /* ===== Strength bar ===== */
   .strength-bar-track {
-    @apply h-2 rounded-full overflow-hidden bg-semantic-border/50 w-full;
+    @apply h-2.5 rounded-full overflow-hidden bg-semantic-border/50 w-full;
   }
 
   .strength-bar-fill {
@@ -205,21 +213,21 @@
   }
 
   .stat-block-label {
-    @apply text-xs text-semantic-text-muted uppercase tracking-wider mt-1 font-sans;
+    @apply text-xs sm:text-sm text-semantic-text-muted uppercase tracking-wider mt-1 font-sans;
   }
 
   /* ===== Tags ===== */
   .tag-flag {
-    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium bg-semantic-surface text-semantic-text-secondary border border-semantic-border;
+    @apply inline-flex items-center px-3 py-1 rounded-sm text-xs font-medium bg-semantic-surface text-semantic-text-secondary border border-semantic-border;
   }
 
   .tag-gold {
-    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium bg-semantic-accent/15 text-semantic-accent border border-semantic-accent/25;
+    @apply inline-flex items-center px-3 py-1 rounded-sm text-xs font-medium bg-semantic-accent/15 text-semantic-accent border border-semantic-accent/25;
   }
 
   /* ===== Buttons ===== */
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-bold text-sm uppercase tracking-wider
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-sm font-display font-bold text-sm uppercase tracking-wider
            bg-semantic-accent text-semantic-accent-foreground
            hover:opacity-90
            transition-all duration-200
@@ -227,7 +235,7 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-semibold text-sm uppercase tracking-wider
+    @apply inline-flex items-center gap-2 px-8 py-4 rounded-sm font-display font-semibold text-sm uppercase tracking-wider
            border border-semantic-border text-semantic-text-secondary
            hover:border-semantic-accent/50 hover:text-semantic-accent
            transition-all duration-200
@@ -236,7 +244,7 @@
 
   /* ===== Accordion ===== */
   .accordion-trigger {
-    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-display font-semibold text-semantic-text-primary
+    @apply w-full flex items-center justify-between gap-4 py-5 text-left text-base sm:text-lg font-display font-semibold text-semantic-text-primary
            hover:text-semantic-accent transition-colors duration-200
            focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent;
   }
@@ -246,25 +254,25 @@
   }
 
   .accordion-content-inner {
-    @apply pb-4 text-sm text-semantic-text-secondary leading-relaxed;
+    @apply pb-5 text-sm sm:text-base text-semantic-text-secondary leading-relaxed;
   }
 
   /* ===== Callout ===== */
   .callout-info {
-    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-accent/40;
+    @apply p-6 text-sm sm:text-base leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-accent/40;
   }
 
   .callout-warning {
-    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-warning/40;
+    @apply p-6 text-sm sm:text-base leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-warning/40;
   }
 
   .callout-danger {
-    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-danger/40;
+    @apply p-6 text-sm sm:text-base leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-danger/40;
   }
 
   /* ===== Dividers ===== */
   .hr-gold {
-    @apply w-16 h-0.5 bg-semantic-accent/60;
+    @apply w-20 h-0.5 bg-semantic-accent/60;
   }
 
   /* ===== Football field pattern ===== */
@@ -273,8 +281,8 @@
       90deg,
       transparent,
       transparent 40px,
-      rgba(255, 255, 255, 0.03) 40px,
-      rgba(255, 255, 255, 0.03) 41px
+      rgba(255, 255, 255, 0.04) 40px,
+      rgba(255, 255, 255, 0.04) 41px
     );
   }
 
@@ -300,15 +308,15 @@
 
   /* ===== Table ===== */
   .table-editorial {
-    @apply w-full text-sm;
+    @apply w-full text-sm sm:text-base;
   }
 
   .table-editorial thead th {
-    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-semantic-text-muted border-b border-semantic-border font-sans;
+    @apply px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-semantic-text-muted border-b border-semantic-border font-sans;
   }
 
   .table-editorial tbody td {
-    @apply px-4 py-3 border-b border-semantic-border/50;
+    @apply px-5 py-4 border-b border-semantic-border/50;
   }
 
   .table-editorial tbody tr {
@@ -319,7 +327,7 @@
     @apply bg-semantic-surface-highlight/30;
   }
 
-  /* Chart.js overrides — applied via CSS variables */
+  /* ===== Chart container ===== */
   .chart-container canvas {
     @apply rounded-sm;
   }
