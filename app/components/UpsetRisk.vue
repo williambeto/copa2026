@@ -11,7 +11,7 @@
 
       <div class="grid md:grid-cols-2 gap-10 md:gap-12">
         <div>
-          <h3 class="flex items-center gap-2 text-lg font-display font-bold text-red-400 mb-5">
+          <h3 class="flex items-center gap-2 text-lg font-display font-bold text-semantic-danger mb-5">
             <span aria-hidden="true" class="text-xl">&#9888;</span>
             Favoritas sob risco
           </h3>
@@ -19,17 +19,17 @@
             <li
               v-for="item in favoritesAtRisk"
               :key="item.team"
-              class="pb-4 border-b border-surface-800/40 last:border-0"
+              class="pb-4 border-b border-semantic-border last:border-0"
             >
               <div class="flex items-center gap-2 mb-2">
                 <span aria-hidden="true" class="text-xl">{{ item.flag }}</span>
-                <span class="font-display font-bold text-gray-100">{{ item.team }}</span>
+                <span class="font-display font-bold text-semantic-text-primary">{{ item.team }}</span>
               </div>
               <div class="flex flex-wrap gap-1.5">
                 <span
                   v-for="factor in item.riskFactors"
                   :key="factor"
-                  class="tag bg-red-500/15 text-red-400 border-red-500/25"
+                  class="tag bg-semantic-danger/15 text-semantic-danger border-semantic-danger/25"
                 >
                   {{ factor }}
                 </span>
@@ -39,7 +39,7 @@
         </div>
 
         <div>
-          <h3 class="flex items-center gap-2 text-lg font-display font-bold text-emerald-400 mb-5">
+          <h3 class="flex items-center gap-2 text-lg font-display font-bold text-semantic-success mb-5">
             <span aria-hidden="true" class="text-xl">&#9878;</span>
             Quem pode eliminar uma favorita
           </h3>
@@ -47,17 +47,17 @@
             <li
               v-for="item in giantKillers"
               :key="item.team"
-              class="pb-4 border-b border-surface-800/40 last:border-0"
+              class="pb-4 border-b border-semantic-border last:border-0"
             >
               <div class="flex items-center gap-2 mb-2">
                 <span aria-hidden="true" class="text-xl">{{ item.flag }}</span>
-                <span class="font-display font-bold text-gray-100">{{ item.team }}</span>
+                <span class="font-display font-bold text-semantic-text-primary">{{ item.team }}</span>
               </div>
               <div class="flex flex-wrap gap-1.5">
                 <span
                   v-for="strength in item.strengths"
                   :key="strength"
-                  class="tag bg-emerald-900/30 text-emerald-400/90 border border-emerald-800/40"
+                  class="tag bg-semantic-success/15 text-semantic-success border border-semantic-success/25"
                 >
                   {{ strength }}
                 </span>

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="fixed top-0 left-0 right-0 z-50 bg-marine-900/95 backdrop-blur-md border-b border-marine-800/60 transition-colors duration-300"
+    class="fixed top-0 left-0 right-0 z-50 bg-semantic-surface backdrop-blur-md border-b border-semantic-border transition-colors duration-300"
     role="banner"
   >
     <nav
@@ -14,7 +14,7 @@
           class="flex-shrink-0 group"
           aria-label="Ir para o topo da página"
         >
-          <span class="text-lg sm:text-xl font-extrabold font-mono tracking-tight text-gold-500 group-hover:text-gold-400 transition-colors duration-200">
+          <span class="text-lg sm:text-xl font-extrabold font-mono tracking-tight text-semantic-accent group-hover:text-semantic-accent transition-colors duration-200">
             World Cup 2026 Intelligence
           </span>
         </a>
@@ -27,8 +27,8 @@
                 :href="item.href"
                 class="px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
                 :class="activeSection === item.id
-                  ? 'text-gold-500 bg-gold-500/10'
-                  : 'text-gray-300 hover:text-gold-400 hover:bg-marine-800/50'"
+                  ? 'text-semantic-accent bg-semantic-accent/10'
+                  : 'text-semantic-text-primary hover:text-semantic-accent hover:bg-semantic-surface'"
                 :aria-current="activeSection === item.id ? 'true' : undefined"
               >
                 {{ item.label }}
@@ -37,17 +37,17 @@
           </ul>
 
           <!-- Separator -->
-          <div class="h-6 w-px bg-marine-700 mx-2" aria-hidden="true" />
+          <div class="h-6 w-px bg-semantic-border mx-2" aria-hidden="true" />
 
           <!-- Theme toggle -->
           <ThemeToggle />
 
           <!-- Data badge -->
           <div
-            class="ml-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-marine-800/80 border border-marine-700/50 text-xs text-gray-400 font-mono"
+            class="ml-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-semantic-surface border border-semantic-border text-xs text-semantic-text-secondary font-mono"
             aria-label="Data da última atualização dos dados"
           >
-            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+            <span class="h-1.5 w-1.5 rounded-full bg-semantic-success animate-pulse" aria-hidden="true" />
             <span>Dados atualizados em 12 de junho de 2026</span>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <!-- Hamburger button -->
           <button
             type="button"
-            class="inline-flex items-center justify-center p-2 rounded-lg text-gray-300 hover:text-gold-400 hover:bg-marine-800/50 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            class="inline-flex items-center justify-center p-2 rounded-lg text-semantic-text-primary hover:text-semantic-accent hover:bg-semantic-surface transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent"
             :aria-expanded="mobileMenuOpen"
             aria-controls="mobile-menu"
             aria-label="Abrir menu de navegação"
@@ -78,15 +78,15 @@
         :class="mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'"
         :aria-hidden="!mobileMenuOpen"
       >
-        <div class="py-3 border-t border-marine-800/60">
+        <div class="py-3 border-t border-semantic-border">
           <ul class="space-y-1 pb-2">
             <li v-for="item in navItems" :key="item.id">
               <a
                 :href="item.href"
                 class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200"
                 :class="activeSection === item.id
-                  ? 'text-gold-500 bg-gold-500/10'
-                  : 'text-gray-300 hover:text-gold-400 hover:bg-marine-800/50'"
+                  ? 'text-semantic-accent bg-semantic-accent/10'
+                  : 'text-semantic-text-primary hover:text-semantic-accent hover:bg-semantic-surface'"
                 :aria-current="activeSection === item.id ? 'true' : undefined"
                 @click="closeMobileMenu"
               >
@@ -97,9 +97,9 @@
 
           <!-- Mobile data badge -->
           <div
-            class="mx-4 mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-marine-800/80 border border-marine-700/50 text-xs text-gray-400 font-mono"
+            class="mx-4 mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-semantic-surface border border-semantic-border text-xs text-semantic-text-secondary font-mono"
           >
-            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" aria-hidden="true" />
+            <span class="h-1.5 w-1.5 rounded-full bg-semantic-success animate-pulse" aria-hidden="true" />
             <span>Dados atualizados em 12 de junho de 2026</span>
           </div>
         </div>

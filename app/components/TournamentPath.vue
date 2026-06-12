@@ -12,14 +12,14 @@
 
       <!-- Team selector -->
       <div class="mb-10">
-        <label for="team-selector" class="block text-sm font-semibold text-gray-400 mb-2 font-sans">
+        <label for="team-selector" class="block text-sm font-semibold text-semantic-text-secondary mb-2 font-sans">
           Selecione a seleção
         </label>
         <div class="relative max-w-xs">
           <select
             id="team-selector"
             v-model="selectedTeamId"
-            class="w-full appearance-none rounded-sm bg-surface-800/60 border border-surface-700/40 px-4 py-2.5 pr-10 text-sm text-white font-medium focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 cursor-pointer font-sans"
+            class="w-full appearance-none rounded-sm bg-semantic-surface border border-semantic-border px-4 py-2.5 pr-10 text-sm text-semantic-text-primary font-medium focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent cursor-pointer font-sans"
           >
             <option
               v-for="id in FAVORITE_IDS"
@@ -29,7 +29,7 @@
               {{ getTeamName(id) }}
             </option>
           </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-semantic-text-secondary">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -44,14 +44,14 @@
           :key="scenario.scenario"
           class="editorial-card-border p-6 flex flex-col"
         >
-          <h3 class="font-display text-lg font-bold text-white mb-3">
+          <h3 class="font-display text-lg font-bold text-semantic-text-primary mb-3">
             {{ scenarioLabel(scenario.scenario) }}
           </h3>
-          <p class="text-sm text-gray-400 leading-relaxed mb-4 font-sans">{{ scenario.description }}</p>
+          <p class="text-sm text-semantic-text-secondary leading-relaxed mb-4 font-sans">{{ scenario.description }}</p>
 
           <!-- Potential opponents -->
           <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 font-sans">Possíveis adversários</p>
+            <p class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider mb-2 font-sans">Possíveis adversários</p>
             <div class="flex flex-wrap gap-1.5">
               <span
                 v-for="opp in scenario.potentialOpponents"
@@ -66,8 +66,8 @@
           <!-- Difficulty meter -->
           <div class="mt-auto">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider font-sans">Dificuldade</span>
-              <span class="text-sm font-mono tabular-nums text-gray-400">{{ scenario.difficulty }}/10</span>
+              <span class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider font-sans">Dificuldade</span>
+              <span class="text-sm font-mono tabular-nums text-semantic-text-secondary">{{ scenario.difficulty }}/10</span>
             </div>
             <div
               class="strength-bar-track"
@@ -87,7 +87,7 @@
         </article>
       </div>
 
-      <p v-else class="text-sm text-gray-500 italic font-sans">
+      <p v-else class="text-sm text-semantic-text-secondary italic font-sans">
         Nenhum cenário de chaveamento disponível para esta seleção.
       </p>
 
@@ -96,8 +96,8 @@
         v-if="groupInfo"
         class="mt-8 editorial-card-border p-5"
       >
-        <p class="text-sm text-gray-400 leading-relaxed font-sans">
-          <span class="font-semibold text-white">Impacto de terminar em primeiro no grupo:</span>
+        <p class="text-sm text-semantic-text-secondary leading-relaxed font-sans">
+          <span class="font-semibold text-semantic-text-primary">Impacto de terminar em primeiro no grupo:</span>
           {{ groupInfo.knockoutImpact }}
         </p>
       </div>
@@ -146,9 +146,9 @@ function scenarioLabel(scenario: KnockoutPath['scenario']): string {
 }
 
 function difficultyFillClass(difficulty: number): string {
-  if (difficulty <= 3) return 'bg-green-500'
+  if (difficulty <= 3) return 'bg-semantic-success'
   if (difficulty <= 5) return 'bg-blue-500'
-  if (difficulty <= 7) return 'bg-amber-500'
-  return 'bg-red-500'
+  if (difficulty <= 7) return 'bg-semantic-warning'
+  return 'bg-semantic-danger'
 }
 </script>

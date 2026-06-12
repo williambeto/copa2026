@@ -17,8 +17,8 @@
         :aria-controls="`squad-panel-${team.id}`"
         class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
         :class="selectedTeamId === team.id
-          ? 'bg-gold-500/20 text-gold-400 border border-gold-500/40'
-          : 'bg-graphite-900/60 border border-graphite-800 text-gray-400 hover:text-gray-200 hover:border-graphite-700'"
+          ? 'bg-semantic-accent/20 text-semantic-accent border border-semantic-accent/40'
+          : 'bg-semantic-surface border border-semantic-border text-semantic-text-secondary hover:text-semantic-text-primary hover:border-semantic-border'"
         @click="selectTeam(team.id)"
       >
         <span aria-hidden="true" class="mr-1.5">{{ team.flag }}</span>
@@ -44,10 +44,10 @@
             class="space-y-1.5"
           >
             <div class="flex items-center justify-between text-sm">
-              <span class="font-medium text-gray-300">{{ pos.label }}</span>
-              <span class="text-gold-400 font-mono tabular-nums">{{ pos.getValue(selectedDepth) }}/10</span>
+              <span class="font-medium text-semantic-text-primary">{{ pos.label }}</span>
+              <span class="text-semantic-accent font-mono tabular-nums">{{ pos.getValue(selectedDepth) }}/10</span>
             </div>
-            <div class="w-full bg-graphite-800 rounded-full h-3 overflow-hidden" role="progressbar" :aria-valuenow="pos.getValue(selectedDepth)" aria-valuemin="0" aria-valuemax="10" :aria-label="`${pos.label}: ${pos.getValue(selectedDepth)} de 10`">
+            <div class="w-full bg-semantic-surface rounded-full h-3 overflow-hidden" role="progressbar" :aria-valuenow="pos.getValue(selectedDepth)" aria-valuemin="0" aria-valuemax="10" :aria-label="`${pos.label}: ${pos.getValue(selectedDepth)} de 10`">
               <div
                 class="h-full rounded-full transition-all duration-700 ease-out"
                 :class="pos.colorClass"
@@ -62,9 +62,9 @@
           <div
             v-for="metric in metrics"
             :key="metric.key"
-            class="bg-graphite-900/60 rounded-lg p-3 border border-graphite-800/50"
+            class="bg-semantic-surface rounded-lg p-3 border border-semantic-border"
           >
-            <div class="text-xs text-gray-500 mb-1">{{ metric.label }}</div>
+            <div class="text-xs text-semantic-text-secondary mb-1">{{ metric.label }}</div>
             <div class="text-lg font-bold tabular-nums" :class="metric.valueClass(selectedDepth)">
               {{ metric.formatValue(selectedDepth) }}
             </div>
@@ -73,7 +73,7 @@
       </div>
 
       <!-- Text summary for accessibility -->
-      <p class="mt-4 text-sm text-gray-500" aria-live="polite">
+      <p class="mt-4 text-sm text-semantic-text-secondary" aria-live="polite">
         {{ buildSummary(team, selectedDepth) }}
       </p>
     </div>
@@ -129,31 +129,31 @@ const metrics: MetricDef[] = [
     key: 'starterQuality',
     label: 'Qualidade dos titulares',
     formatValue: d => `${d.starterQuality}/10`,
-    valueClass: d => d.starterQuality >= 9 ? 'text-gold-400' : 'text-gray-200',
+    valueClass: d => d.starterQuality >= 9 ? 'text-semantic-accent' : 'text-semantic-text-primary',
   },
   {
     key: 'benchQuality',
     label: 'Qualidade do banco',
     formatValue: d => `${d.benchQuality}/10`,
-    valueClass: d => d.benchQuality >= 8.5 ? 'text-gold-400' : 'text-gray-200',
+    valueClass: d => d.benchQuality >= 8.5 ? 'text-semantic-accent' : 'text-semantic-text-primary',
   },
   {
     key: 'versatility',
     label: 'Versatilidade',
     formatValue: d => `${d.versatility}/10`,
-    valueClass: d => d.versatility >= 8.5 ? 'text-gold-400' : 'text-gray-200',
+    valueClass: d => d.versatility >= 8.5 ? 'text-semantic-accent' : 'text-semantic-text-primary',
   },
   {
     key: 'decisivePlayers',
     label: 'Jogadores decisivos',
     formatValue: d => `${d.decisivePlayers}`,
-    valueClass: d => d.decisivePlayers >= 6 ? 'text-gold-400' : 'text-gray-200',
+    valueClass: d => d.decisivePlayers >= 6 ? 'text-semantic-accent' : 'text-semantic-text-primary',
   },
   {
     key: 'starDependency',
     label: 'Dependência de estrela',
     formatValue: d => `${d.starDependency}/10`,
-    valueClass: d => d.starDependency <= 4 ? 'text-gold-400' : d.starDependency >= 7 ? 'text-red-400' : 'text-gray-200',
+    valueClass: d => d.starDependency <= 4 ? 'text-semantic-accent' : d.starDependency >= 7 ? 'text-semantic-danger' : 'text-semantic-text-primary',
   },
 ]
 

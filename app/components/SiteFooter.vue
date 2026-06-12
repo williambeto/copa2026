@@ -1,16 +1,16 @@
 <template>
   <footer
-    class="border-t border-marine-800/60 bg-marine-950 transition-colors duration-300"
+    class="border-t border-semantic-border bg-semantic-background transition-colors duration-300"
     role="contentinfo"
   >
     <div class="section-container py-12 lg:py-16">
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         <!-- Brand -->
         <div class="space-y-4">
-          <p class="text-lg font-extrabold font-mono text-gold-500">
+          <p class="text-lg font-extrabold font-mono text-semantic-accent">
             World Cup 2026 Intelligence
           </p>
-          <p class="text-sm text-gray-400 leading-relaxed">
+          <p class="text-sm text-semantic-text-secondary leading-relaxed">
             Análise editorial independente. Dados compilados de fontes públicas.
             Atualizado em 12 de junho de 2026.
           </p>
@@ -18,14 +18,14 @@
 
         <!-- Links -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">
+          <h3 class="text-sm font-semibold text-semantic-text-primary uppercase tracking-wider">
             Navegação
           </h3>
           <ul class="space-y-2">
             <li>
               <a
                 href="#metodologia"
-                class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                class="text-sm text-semantic-text-secondary hover:text-semantic-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent"
               >
                 Metodologia
               </a>
@@ -33,7 +33,7 @@
             <li>
               <a
                 href="#fontes"
-                class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                class="text-sm text-semantic-text-secondary hover:text-semantic-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent"
               >
                 Fontes
               </a>
@@ -41,7 +41,7 @@
             <li>
               <a
                 href="#ranking"
-                class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                class="text-sm text-semantic-text-secondary hover:text-semantic-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent"
               >
                 Ranking completo
               </a>
@@ -49,7 +49,7 @@
             <li>
               <a
                 href="#resumo"
-                class="text-sm text-gray-400 hover:text-gold-400 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+                class="text-sm text-semantic-text-secondary hover:text-semantic-accent transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent"
               >
                 Início
               </a>
@@ -59,13 +59,13 @@
 
         <!-- Disclaimer -->
         <div class="space-y-4 sm:col-span-2 lg:col-span-1">
-          <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider">
+          <h3 class="text-sm font-semibold text-semantic-text-primary uppercase tracking-wider">
             Aviso importante
           </h3>
           <div
-            class="p-4 rounded-lg border border-gold-500/20 bg-marine-900/60"
+            class="p-4 rounded-lg border border-semantic-accent/20 bg-semantic-surface"
           >
-            <p class="text-xs text-gray-400 leading-relaxed">
+            <p class="text-xs text-semantic-text-secondary leading-relaxed">
               As probabilidades apresentadas são estimativas analíticas e não representam
               recomendações financeiras ou de aposta. Este é um projeto editorial independente
               com fins informativos.
@@ -75,11 +75,11 @@
       </div>
 
       <!-- Bottom bar -->
-      <div class="mt-12 pt-6 border-t border-marine-800/60 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p class="text-xs text-gray-500">
+      <div class="mt-12 pt-6 border-t border-semantic-border flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-semantic-text-muted">
           &copy; 2026 World Cup 2026 Intelligence. Todos os direitos reservados.
         </p>
-        <p class="text-xs text-gray-600 font-mono">
+        <p class="text-xs text-semantic-text-muted font-mono">
           Edição de 12 de junho de 2026
         </p>
       </div>

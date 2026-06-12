@@ -17,15 +17,15 @@
           :href="source.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="tag-gold text-sm hover:bg-gold-500/25 transition-colors duration-200"
+          class="tag-gold text-sm hover:bg-semantic-accent/25 transition-colors duration-200"
         >
           {{ source.name }}
-          <span class="text-[10px] text-gold-400/70 ml-1.5">{{ source.categoryTag }}</span>
+          <span class="text-[10px] text-semantic-accent ml-1.5">{{ source.categoryTag }}</span>
         </a>
       </div>
 
       <!-- Accordion: full sources -->
-      <div class="border-t border-gray-200 pt-6">
+      <div class="border-t border-semantic-border pt-6">
         <button
           type="button"
           class="accordion-trigger w-full"
@@ -47,8 +47,8 @@
           <div class="accordion-content-inner">
             <div class="space-y-6 pt-4">
               <div v-for="category in sourceCategories" :key="category.name">
-                <h4 class="text-sm font-display font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-600" aria-hidden="true" />
+                <h4 class="text-sm font-display font-bold text-semantic-text-primary mb-3 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-semantic-accent" aria-hidden="true" />
                   {{ category.name }}
                 </h4>
                 <div class="flex flex-wrap gap-2">
@@ -58,7 +58,7 @@
                     :href="source.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="tag-flag text-sm hover:bg-gray-200 transition-colors duration-200"
+                    class="tag-flag text-sm hover:bg-semantic-surface transition-colors duration-200"
                   >
                     {{ source.name }}
                   </a>
@@ -69,7 +69,7 @@
         </div>
       </div>
 
-      <p class="mt-8 text-xs text-gray-500 text-center">
+      <p class="mt-8 text-xs text-semantic-text-secondary text-center">
         Dados atualizados em 12 de junho de 2026. Cada dado sensível ao tempo inclui fonte e data da coleta.
       </p>
     </div>

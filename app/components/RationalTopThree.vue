@@ -24,7 +24,7 @@
                   {{ profile.positionLabel }}
                 </span>
               </div>
-              <h3 class="font-display text-2xl font-bold text-white">
+              <h3 class="font-display text-2xl font-bold text-semantic-text-primary">
                 {{ profile.team.name }}
               </h3>
             </div>
@@ -35,13 +35,13 @@
               <span class="stat-badge-gold text-sm">
                 {{ profile.team.probability }}%
               </span>
-              <span class="text-xs text-gray-500">
+              <span class="text-xs text-semantic-text-secondary">
                 FIFA {{ profile.team.fifaRank !== null ? '#' + profile.team.fifaRank : '—' }}
                 · Elo {{ profile.team.eloRank !== null ? '#' + profile.team.eloRank : '—' }}
               </span>
             </div>
 
-            <p class="text-sm text-gray-400 leading-relaxed">
+            <p class="text-sm text-semantic-text-secondary leading-relaxed">
               {{ profile.analysis }}
             </p>
 
@@ -49,16 +49,16 @@
 
             <div class="space-y-3">
               <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Principal força</span>
-                <p class="text-sm text-gray-300 mt-0.5">{{ profile.mainStrength }}</p>
+                <span class="text-xs font-semibold uppercase tracking-wider text-semantic-text-secondary">Principal força</span>
+                <p class="text-sm text-semantic-text-primary mt-0.5">{{ profile.mainStrength }}</p>
               </div>
               <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Principal risco</span>
-                <p class="text-sm text-gray-400 mt-0.5">{{ profile.mainRisk }}</p>
+                <span class="text-xs font-semibold uppercase tracking-wider text-semantic-text-secondary">Principal risco</span>
+                <p class="text-sm text-semantic-text-secondary mt-0.5">{{ profile.mainRisk }}</p>
               </div>
               <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Jogador decisivo</span>
-                <p class="text-sm font-semibold text-gold-400 mt-0.5">{{ profile.decisivePlayer }}</p>
+                <span class="text-xs font-semibold uppercase tracking-wider text-semantic-text-secondary">Jogador decisivo</span>
+                <p class="text-sm font-semibold text-semantic-accent mt-0.5">{{ profile.decisivePlayer }}</p>
               </div>
             </div>
           </div>

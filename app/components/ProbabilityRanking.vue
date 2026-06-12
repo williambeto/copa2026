@@ -15,12 +15,12 @@
           v-for="(item, index) in rankedItems"
           :key="item.team"
           class="py-5 first:pt-0 last:pb-0"
-          :class="index < 3 ? 'pl-5 border-l-4 border-gold-500/70 -ml-px' : 'pl-5 border-l-4 border-transparent -ml-px'"
+          :class="index < 3 ? 'pl-5 border-l-4 border-semantic-accent/70 -ml-px' : 'pl-5 border-l-4 border-transparent -ml-px'"
         >
           <div class="flex items-start gap-5">
             <span
               class="font-display font-extrabold leading-none shrink-0 mt-1"
-              :class="index < 3 ? 'text-3xl text-gold-500' : 'text-2xl text-surface-400'"
+              :class="index < 3 ? 'text-3xl text-semantic-accent' : 'text-2xl text-surface-400'"
               aria-label="Posição"
             >
               {{ index + 1 }}
@@ -31,7 +31,7 @@
                 <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ item.flag }}</span>
                 <span
                   class="font-display font-bold leading-tight truncate"
-                  :class="index < 3 ? 'text-2xl text-white' : 'text-xl text-white'"
+                  :class="index < 3 ? 'text-2xl text-semantic-text-primary' : 'text-xl text-semantic-text-primary'"
                 >
                   {{ item.team }}
                 </span>
@@ -50,7 +50,7 @@
                 </div>
               </div>
 
-              <p class="text-sm text-gray-500 leading-relaxed max-w-xl">
+              <p class="text-sm text-semantic-text-muted leading-relaxed max-w-xl">
                 {{ item.justification }}
               </p>
             </div>
@@ -63,7 +63,7 @@
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-3 mb-2">
                 <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ othersItem?.flag }}</span>
-                <span class="font-display font-bold text-xl leading-tight truncate text-gray-400">
+                <span class="font-display font-bold text-xl leading-tight truncate text-semantic-text-secondary">
                   {{ othersItem?.team }}
                 </span>
                 <span class="data-percent text-2xl ml-auto shrink-0">
@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <p class="mt-10 text-xs text-gray-600">
+      <p class="mt-10 text-xs text-semantic-text-muted">
         As probabilidades são estimativas analíticas baseadas no modelo ponderado descrito na metodologia.
         Não representam certezas nem recomendações.
       </p>

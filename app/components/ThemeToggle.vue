@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-lg transition-colors duration-200 hover:bg-marine-800/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 group"
+    class="inline-flex items-center justify-center w-9 h-9 rounded-lg text-lg transition-colors duration-200 hover:bg-semantic-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent group"
     :aria-label="isDark ? 'Ativar modo claro' : 'Ativar modo escuro'"
     :title="isDark ? 'Ativar modo claro' : 'Ativar modo escuro'"
     @click="toggleTheme"

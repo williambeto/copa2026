@@ -33,9 +33,9 @@
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 mb-0.5">
                 <span class="text-sm" aria-hidden="true">{{ getTeamFlag(injury.teamId) }}</span>
-                <h4 class="font-display font-bold text-sm text-white truncate">{{ injury.player }}</h4>
+                <h4 class="font-display font-bold text-sm text-semantic-text-primary truncate">{{ injury.player }}</h4>
               </div>
-              <p class="text-xs text-gray-500">{{ getPosition(injury) }}</p>
+              <p class="text-xs text-semantic-text-secondary">{{ getPosition(injury) }}</p>
               <div class="flex items-center gap-2 mt-1.5">
                 <span
                   class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-sm text-xs font-semibold"
@@ -86,12 +86,12 @@
               </button>
             </div>
 
-            <div v-if="groupedTeams.length === 0" class="text-center py-8 text-gray-500">
+            <div v-if="groupedTeams.length === 0" class="text-center py-8 text-semantic-text-secondary">
               <p>Nenhum jogador encontrado para o filtro selecionado.</p>
             </div>
 
             <div v-for="{ team, injuries } in groupedTeams" :key="team.id" class="mb-6 last:mb-0">
-              <h4 class="flex items-center gap-2 font-display font-bold text-sm text-white mb-3">
+              <h4 class="flex items-center gap-2 font-display font-bold text-sm text-semantic-text-primary mb-3">
                 <span aria-hidden="true">{{ team.flag }}</span>
                 {{ team.name }}
               </h4>
@@ -99,7 +99,7 @@
                 <div
                   v-for="injury in injuries"
                   :key="`${injury.teamId}-${injury.player}`"
-                  class="flex items-center justify-between gap-3 p-3 rounded-sm bg-surface-900/60 border border-surface-800/40"
+                  class="flex items-center justify-between gap-3 p-3 rounded-sm bg-semantic-surface/60 border border-semantic-border/40"
                 >
                   <div class="flex items-center gap-3 min-w-0">
                     <div
@@ -113,8 +113,8 @@
                       </div>
                     </div>
                     <div class="min-w-0">
-                      <p class="text-sm text-gray-300 truncate">{{ injury.player }}</p>
-                      <p class="text-xs text-gray-600">{{ getPosition(injury) }}</p>
+                      <p class="text-sm text-semantic-text-primary truncate">{{ injury.player }}</p>
+                      <p class="text-xs text-semantic-text-muted">{{ getPosition(injury) }}</p>
                     </div>
                   </div>
                   <div class="flex items-center gap-2 shrink-0">
@@ -125,7 +125,7 @@
                       <span class="w-1.5 h-1.5 rounded-full" :class="statusDotClass(injury.status)" />
                       {{ injury.statusLabel }}
                     </span>
-                    <span class="text-xs text-gray-600">{{ injury.lastUpdated }}</span>
+                    <span class="text-xs text-semantic-text-muted">{{ injury.lastUpdated }}</span>
                   </div>
                 </div>
               </div>
@@ -168,20 +168,20 @@ const criticalInjuries = computed(() =>
 
 const statusStyles: Record<string, { container: string; dot: string }> = {
   available: {
-    container: 'bg-green-500/10 text-green-400 border border-green-500/20',
-    dot: 'bg-green-400',
+    container: 'bg-semantic-success/10 text-semantic-success border border-semantic-success/20',
+    dot: 'bg-semantic-success',
   },
   returning: {
     container: 'bg-blue-500/10 text-blue-400 border border-blue-500/20',
     dot: 'bg-blue-400',
   },
   doubt: {
-    container: 'bg-amber-500/10 text-amber-400 border border-amber-500/20',
-    dot: 'bg-amber-400',
+    container: 'bg-semantic-warning/10 text-semantic-warning border border-semantic-warning/20',
+    dot: 'bg-semantic-warning',
   },
   out: {
-    container: 'bg-red-500/10 text-red-400 border border-red-500/20',
-    dot: 'bg-red-400',
+    container: 'bg-semantic-danger/10 text-semantic-danger border border-semantic-danger/20',
+    dot: 'bg-semantic-danger',
   },
   overloaded: {
     container: 'bg-purple-500/10 text-purple-400 border border-purple-500/20',
@@ -190,32 +190,32 @@ const statusStyles: Record<string, { container: string; dot: string }> = {
 }
 
 function statusClass(status: InjuryInfo['status']): string {
-  return statusStyles[status]?.container ?? 'bg-gray-500/10 text-gray-400 border border-gray-500/20'
+  return statusStyles[status]?.container ?? 'bg-semantic-text-secondary/10 text-semantic-text-secondary border border-semantic-text-secondary/20'
 }
 
 function statusDotClass(status: InjuryInfo['status']): string {
-  return statusStyles[status]?.dot ?? 'bg-gray-400'
+  return statusStyles[status]?.dot ?? 'bg-semantic-text-muted'
 }
 
 function avatarBorderClass(status: InjuryInfo['status']): string {
   switch (status) {
-    case 'available': return 'border-green-500/40'
+    case 'available': return 'border-semantic-success/40'
     case 'returning': return 'border-blue-500/40'
-    case 'doubt': return 'border-amber-500/40'
-    case 'out': return 'border-red-500/40'
+    case 'doubt': return 'border-semantic-warning/40'
+    case 'out': return 'border-semantic-danger/40'
     case 'overloaded': return 'border-purple-500/40'
-    default: return 'border-surface-700/40'
+    default: return 'border-semantic-border/40'
   }
 }
 
 function avatarBgClass(status: InjuryInfo['status']): string {
   switch (status) {
-    case 'available': return 'bg-gradient-to-br from-green-500/20 to-green-500/5 text-green-400'
+    case 'available': return 'bg-gradient-to-br from-semantic-success/20 to-semantic-success/5 text-semantic-success'
     case 'returning': return 'bg-gradient-to-br from-blue-500/20 to-blue-500/5 text-blue-400'
-    case 'doubt': return 'bg-gradient-to-br from-amber-500/20 to-amber-500/5 text-amber-400'
-    case 'out': return 'bg-gradient-to-br from-red-500/20 to-red-500/5 text-red-400'
+    case 'doubt': return 'bg-gradient-to-br from-semantic-warning/20 to-semantic-warning/5 text-semantic-warning'
+    case 'out': return 'bg-gradient-to-br from-semantic-danger/20 to-semantic-danger/5 text-semantic-danger'
     case 'overloaded': return 'bg-gradient-to-br from-purple-500/20 to-purple-500/5 text-purple-400'
-    default: return 'bg-gradient-to-br from-surface-500/20 to-surface-500/5 text-gray-400'
+    default: return 'bg-gradient-to-br from-semantic-surface/20 to-semantic-surface/5 text-semantic-text-secondary'
   }
 }
 

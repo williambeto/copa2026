@@ -29,7 +29,7 @@
             {{ card.flag }}
           </span>
           <div>
-            <p class="text-xs font-semibold uppercase tracking-wider text-gold-600 mb-0.5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-semantic-accent mb-0.5">
               {{ card.label }}
             </p>
             <p class="text-lg font-display font-bold text-gray-900 leading-snug">
@@ -37,7 +37,7 @@
             </p>
             <p
               v-if="card.value"
-              class="text-sm font-sans text-gray-600 mt-1 leading-relaxed"
+              class="text-sm font-sans text-semantic-text-muted mt-1 leading-relaxed"
             >
               {{ card.value }}
             </p>
@@ -47,7 +47,7 @@
 
       <div class="hr-gold mx-auto mt-12" />
 
-      <p class="mt-6 text-sm text-gray-500 leading-relaxed text-center max-w-xl mx-auto">
+      <p class="mt-6 text-sm text-semantic-text-muted leading-relaxed text-center max-w-xl mx-auto">
         Os percentuais são estimativas analíticas baseadas no modelo descrito na metodologia. Não representam certezas nem recomendações.
       </p>
     </div>

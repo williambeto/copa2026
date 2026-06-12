@@ -19,11 +19,11 @@
           class="editorial-card-border p-4 text-center"
         >
           <div class="text-2xl mb-1" aria-hidden="true">{{ team.flag }}</div>
-          <p class="font-display font-bold text-white text-sm mb-2">{{ team.team }}</p>
+          <p class="font-display font-bold text-semantic-text-primary text-sm mb-2">{{ team.team }}</p>
           <div class="stat-badge-neutral text-xs mb-2">
             {{ team.record }}
           </div>
-          <p class="text-xs text-gray-500 font-mono">{{ team.goals }}</p>
+          <p class="text-xs text-semantic-text-secondary font-mono">{{ team.goals }}</p>
         </div>
       </div>
 
@@ -31,17 +31,17 @@
       <div
         role="tablist"
         aria-label="Selecionar seleção"
-        class="flex overflow-x-auto gap-1 pb-3 mb-8 border-b border-surface-800/60"
+        class="flex overflow-x-auto gap-1 pb-3 mb-8 border-b border-semantic-border/60"
       >
         <button
           v-for="team in matchSummaries"
           :key="team.team"
           role="tab"
           type="button"
-          class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-t-lg text-sm font-display font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 whitespace-nowrap"
+          class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-t-lg text-sm font-display font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent whitespace-nowrap"
           :class="selectedTeam === team.team
-            ? 'text-gold-400 bg-surface-900/80 border-b-2 border-gold-500'
-            : 'text-gray-500 hover:text-gray-300 hover:bg-surface-900/40'"
+            ? 'text-semantic-accent bg-semantic-surface border-b-2 border-semantic-accent'
+            : 'text-semantic-text-secondary hover:text-semantic-text-primary hover:bg-semantic-surface/40'"
           :aria-selected="selectedTeam === team.team"
           :aria-controls="`timeline-${team.team}`"
           :tabindex="selectedTeam === team.team ? 0 : -1"
@@ -65,8 +65,8 @@
           <div class="flex items-center gap-4 mb-6">
             <span class="text-3xl" aria-hidden="true">{{ team.flag }}</span>
             <div>
-              <h3 class="font-display text-xl font-bold text-white">{{ team.team }}</h3>
-              <p class="text-sm text-gray-500">{{ team.form.period }}</p>
+              <h3 class="font-display text-xl font-bold text-semantic-text-primary">{{ team.team }}</h3>
+              <p class="text-sm text-semantic-text-secondary">{{ team.form.period }}</p>
             </div>
             <div class="ml-auto flex gap-3">
               <span class="tag-flag">{{ team.record }}</span>
@@ -84,7 +84,7 @@
               <!-- Vertical line -->
               <div
                 v-if="idx < (timelineMatches(team).length - 1)"
-                class="absolute left-[11px] top-5 bottom-0 w-px bg-surface-800/60"
+                class="absolute left-[11px] top-5 bottom-0 w-px bg-semantic-surface/60"
               />
               <!-- Dot -->
               <div
@@ -102,18 +102,18 @@
                   >
                     {{ match.resultLabel }}
                   </span>
-                  <span class="text-sm font-bold text-white">{{ match.score }}</span>
-                  <span class="text-xs text-gray-500">vs {{ match.opponent }}</span>
+                  <span class="text-sm font-bold text-semantic-text-primary">{{ match.score }}</span>
+                  <span class="text-xs text-semantic-text-secondary">vs {{ match.opponent }}</span>
                 </div>
-                <p class="text-xs text-gray-500">{{ match.competition }}</p>
+                <p class="text-xs text-semantic-text-secondary">{{ match.competition }}</p>
               </div>
             </div>
           </div>
 
           <!-- Narrative summary -->
-          <div class="mt-6 p-4 rounded-sm bg-surface-900/60 border border-surface-800/40">
-            <p class="text-sm text-gray-400 leading-relaxed">
-              <span class="font-serif font-bold text-gold-400">{{ team.team }}</span>
+          <div class="mt-6 p-4 rounded-sm bg-semantic-surface/60 border border-semantic-border/40">
+            <p class="text-sm text-semantic-text-secondary leading-relaxed">
+              <span class="font-serif font-bold text-semantic-accent">{{ team.team }}</span>
               {{ narrativeSummary(team) }}
             </p>
           </div>
@@ -260,28 +260,28 @@ function narrativeSummary(summary: MatchSummary): string {
 
 function resultDotClass(result: string): string {
   switch (result) {
-    case 'win': return 'border-green-500/50 bg-green-500/10'
-    case 'draw': return 'border-gray-500/50 bg-gray-500/10'
-    case 'loss': return 'border-red-500/50 bg-red-500/10'
-    default: return 'border-gray-500/50 bg-gray-500/10'
+    case 'win': return 'border-semantic-success/50 bg-semantic-success/10'
+    case 'draw': return 'border-semantic-text-muted/50 bg-semantic-text-muted/10'
+    case 'loss': return 'border-semantic-danger/50 bg-semantic-danger/10'
+    default: return 'border-semantic-text-muted/50 bg-semantic-text-muted/10'
   }
 }
 
 function resultInnerClass(result: string): string {
   switch (result) {
-    case 'win': return 'bg-green-400'
-    case 'draw': return 'bg-gray-400'
-    case 'loss': return 'bg-red-400'
-    default: return 'bg-gray-400'
+    case 'win': return 'bg-semantic-success'
+    case 'draw': return 'bg-semantic-text-muted'
+    case 'loss': return 'bg-semantic-danger'
+    default: return 'bg-semantic-text-muted'
   }
 }
 
 function resultTextClass(result: string): string {
   switch (result) {
-    case 'win': return 'text-green-400'
-    case 'draw': return 'text-gray-300'
-    case 'loss': return 'text-red-400'
-    default: return 'text-gray-300'
+    case 'win': return 'text-semantic-success'
+    case 'draw': return 'text-semantic-text-primary'
+    case 'loss': return 'text-semantic-danger'
+    default: return 'text-semantic-text-primary'
   }
 }
 

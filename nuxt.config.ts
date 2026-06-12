@@ -29,6 +29,17 @@ export default defineNuxtConfig({
       ],
       script: [
         {
+          innerHTML: `
+            (function(){
+              var t=localStorage.getItem('wc2026-theme');
+              var d=window.matchMedia('(prefers-color-scheme:dark)').matches;
+              if(t==='dark'||(!t&&d))document.documentElement.classList.add('dark');
+              else document.documentElement.classList.remove('dark');
+            })();
+          `,
+          type: 'text/javascript',
+        },
+        {
           type: 'application/ld+json',
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org',

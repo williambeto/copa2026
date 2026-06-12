@@ -3,7 +3,53 @@
 @tailwind utilities;
 
 @layer base {
+  /* ===== Light theme (default) ===== */
   :root {
+    --color-bg: 244 241 232;
+    --color-bg-muted: 237 232 220;
+    --color-surface: 255 255 255;
+    --color-surface-elevated: 250 248 242;
+    --color-surface-highlight: 255 245 214;
+    --color-text-primary: 16 24 32;
+    --color-text-secondary: 63 75 85;
+    --color-text-muted: 107 114 128;
+    --color-border: 217 212 200;
+    --color-border-strong: 184 177 164;
+    --color-accent: 201 149 32;
+    --color-accent-foreground: 16 24 32;
+    --color-success: 36 122 82;
+    --color-warning: 183 121 31;
+    --color-danger: 184 64 64;
+    --color-chart-grid: 216 211 200;
+    --color-chart-label: 63 75 85;
+    --color-chart-tooltip-bg: 16 24 32;
+    --color-chart-tooltip-text: 248 250 252;
+
+    color-scheme: light;
+  }
+
+  /* ===== Dark theme ===== */
+  .dark {
+    --color-bg: 7 19 31;
+    --color-bg-muted: 11 27 41;
+    --color-surface: 16 34 49;
+    --color-surface-elevated: 21 43 59;
+    --color-surface-highlight: 39 51 31;
+    --color-text-primary: 248 250 252;
+    --color-text-secondary: 203 213 225;
+    --color-text-muted: 148 163 184;
+    --color-border: 38 59 74;
+    --color-border-strong: 58 82 98;
+    --color-accent: 214 167 44;
+    --color-accent-foreground: 7 19 31;
+    --color-success: 73 169 120;
+    --color-warning: 215 164 61;
+    --color-danger: 221 102 102;
+    --color-chart-grid: 38 59 74;
+    --color-chart-label: 203 213 225;
+    --color-chart-tooltip-bg: 248 250 252;
+    --color-chart-tooltip-text: 16 24 32;
+
     color-scheme: dark;
   }
 
@@ -24,17 +70,18 @@
   }
 
   body {
-    @apply bg-navy-950 text-gray-200 antialiased;
+    @apply bg-semantic-background text-semantic-text-primary antialiased;
     font-size: 1.0625rem;
     line-height: 1.7;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
-    @apply bg-gold-500/25 text-white;
+    @apply bg-semantic-accent/25 text-semantic-accent-foreground;
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-gold-500 outline;
+    @apply outline-2 outline-offset-2 outline-semantic-accent outline;
   }
 
   h1, h2, h3, h4 {
@@ -43,23 +90,18 @@
 }
 
 @layer components {
-  /* ===== Editorial section containers ===== */
+  /* ===== Section containers ===== */
   .section-dark {
-    @apply py-section lg:py-section-lg;
+    @apply py-section lg:py-section-lg bg-semantic-background;
   }
 
   .section-light {
-    @apply py-section lg:py-section-lg bg-editorial-100 text-gray-900;
+    @apply py-section lg:py-section-lg bg-semantic-background-muted;
   }
 
-  .section-light h2,
-  .section-light h3,
-  .section-light .section-label {
-    @apply text-gray-900;
-  }
-
-  .section-light p {
-    @apply text-gray-700;
+  /* Override section-light when dark — same as background to maintain rhythm */
+  .dark .section-light {
+    @apply bg-semantic-background-muted;
   }
 
   .section-inner {
@@ -74,70 +116,38 @@
     @apply max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* ===== Section dividers ===== */
-  .section-divider {
-    @apply w-full h-px;
-  }
-  .section-divider-dark {
-    @apply section-divider bg-gradient-to-r from-transparent via-navy-800/50 to-transparent;
-  }
-
   /* ===== Typography ===== */
   .section-label {
-    @apply font-display text-xs uppercase tracking-[0.2em] text-gold-500 mb-4 font-semibold;
-  }
-
-  .section-light .section-label {
-    @apply text-gold-600;
+    @apply font-display text-xs uppercase tracking-[0.2em] text-semantic-accent mb-4 font-semibold;
   }
 
   .section-headline {
-    @apply font-display text-section lg:text-section-lg font-extrabold leading-tight tracking-tight text-white;
-  }
-
-  .section-light .section-headline {
-    @apply text-gray-900;
+    @apply font-display text-section lg:text-section-lg font-extrabold leading-tight tracking-tight text-semantic-text-primary;
   }
 
   .section-subhead {
-    @apply font-sans text-body-lg text-gray-400 max-w-2xl leading-relaxed;
-  }
-
-  .section-light .section-subhead {
-    @apply text-gray-600;
+    @apply font-sans text-body-lg text-semantic-text-secondary max-w-2xl leading-relaxed;
   }
 
   .heading-serif {
-    @apply font-serif text-2xl lg:text-3xl font-bold leading-tight;
+    @apply font-serif text-2xl lg:text-3xl font-bold leading-tight text-semantic-text-primary;
   }
 
   .pull-quote {
-    @apply font-serif text-xl lg:text-2xl italic leading-relaxed text-gray-200 border-l-4 border-gold-500/50 pl-6;
+    @apply font-serif text-xl lg:text-2xl italic leading-relaxed text-semantic-text-primary border-l-4 border-semantic-accent/50 pl-6;
   }
 
-  .section-light .pull-quote {
-    @apply text-gray-800 border-gold-600/50;
-  }
-
-  /* ===== Editorial cards ===== */
+  /* ===== Editorial card ===== */
   .editorial-card {
-    @apply bg-navy-900/60 backdrop-blur-sm rounded-sm;
-  }
-
-  .section-light .editorial-card {
-    @apply bg-white shadow-sm;
+    @apply bg-semantic-surface rounded-sm transition-colors duration-300;
   }
 
   .editorial-card-accent {
-    @apply editorial-card border-l-4 border-gold-500/50;
+    @apply editorial-card border-l-4 border-semantic-accent/50;
   }
 
   .editorial-card-border {
-    @apply editorial-card border border-surface-800/40;
-  }
-
-  .section-light .editorial-card-border {
-    @apply border-gray-200;
+    @apply editorial-card border border-semantic-border;
   }
 
   /* ===== Photo placeholder ===== */
@@ -154,112 +164,81 @@
     @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent;
   }
 
-  /* ===== Stats badges ===== */
+  /* ===== Stat badges ===== */
   .stat-badge {
     @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-sm font-semibold;
   }
 
   .stat-badge-gold {
-    @apply stat-badge bg-gold-500/15 text-gold-400 border border-gold-500/25;
+    @apply stat-badge bg-semantic-accent/15 text-semantic-accent border border-semantic-accent/25;
   }
 
   .stat-badge-neutral {
-    @apply stat-badge bg-surface-800/60 text-gray-300 border border-surface-700/40;
-  }
-
-  .section-light .stat-badge-neutral {
-    @apply bg-gray-100 text-gray-700 border-gray-200;
+    @apply stat-badge bg-semantic-surface text-semantic-text-secondary border border-semantic-border;
   }
 
   /* ===== Data value ===== */
   .data-value {
-    @apply font-mono font-semibold tabular-nums;
+    @apply font-mono font-semibold tabular-nums text-semantic-text-primary;
   }
 
   .data-percent {
-    @apply font-display font-extrabold text-gold-400 tracking-tight;
+    @apply font-display font-extrabold text-semantic-accent tracking-tight;
   }
 
-  /* ===== Progress bar (sports-style) ===== */
-  .strength-bar {
-    @apply h-2 rounded-full overflow-hidden;
-  }
-
+  /* ===== Strength bar ===== */
   .strength-bar-track {
-    @apply strength-bar bg-surface-800/60 w-full;
+    @apply h-2 rounded-full overflow-hidden bg-semantic-border/50 w-full;
   }
 
   .strength-bar-fill {
     @apply h-full rounded-full transition-all duration-700 ease-out;
   }
 
-  .strength-bar-fill-gold { @apply bg-gold-500; }
-  .strength-bar-fill-green { @apply bg-green-500; }
+  .strength-bar-fill-gold { @apply bg-semantic-accent; }
+  .strength-bar-fill-green { @apply bg-semantic-success; }
   .strength-bar-fill-blue { @apply bg-blue-500; }
 
   /* ===== Stat block ===== */
-  .stat-block {
-    @apply flex flex-col;
-  }
-
   .stat-block-value {
-    @apply font-display text-3xl lg:text-4xl font-extrabold text-white tracking-tight;
-  }
-
-  .section-light .stat-block-value {
-    @apply text-gray-900;
+    @apply font-display text-3xl lg:text-4xl font-extrabold text-semantic-text-primary tracking-tight;
   }
 
   .stat-block-label {
-    @apply text-xs text-gray-500 uppercase tracking-wider mt-1 font-sans;
+    @apply text-xs text-semantic-text-muted uppercase tracking-wider mt-1 font-sans;
   }
 
   /* ===== Tags ===== */
-  .tag {
-    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium;
-  }
-
   .tag-flag {
-    @apply tag bg-surface-800/60 text-gray-300 border border-surface-700/40;
-  }
-
-  .section-light .tag-flag {
-    @apply bg-gray-100 text-gray-700 border-gray-200;
+    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium bg-semantic-surface text-semantic-text-secondary border border-semantic-border;
   }
 
   .tag-gold {
-    @apply tag bg-gold-500/15 text-gold-400 border border-gold-500/25;
+    @apply inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-medium bg-semantic-accent/15 text-semantic-accent border border-semantic-accent/25;
   }
 
   /* ===== Buttons ===== */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-bold text-sm uppercase tracking-wider
-           bg-gold-500 text-navy-950 hover:bg-gold-400
-           transition-colors duration-200
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
+           bg-semantic-accent text-semantic-accent-foreground
+           hover:opacity-90
+           transition-all duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent;
   }
 
   .btn-outline {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-sm font-display font-semibold text-sm uppercase tracking-wider
-           border border-surface-700/60 text-gray-300
-           hover:border-gold-500/50 hover:text-gold-400
-           transition-colors duration-200
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
-  }
-
-  .section-light .btn-outline {
-    @apply border-gray-300 text-gray-700 hover:border-gold-500/50 hover:text-gold-600;
+           border border-semantic-border text-semantic-text-secondary
+           hover:border-semantic-accent/50 hover:text-semantic-accent
+           transition-all duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent;
   }
 
   /* ===== Accordion ===== */
   .accordion-trigger {
-    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-display font-semibold text-white
-           hover:text-gold-400 transition-colors duration-200
-           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
-  }
-
-  .section-light .accordion-trigger {
-    @apply text-gray-900 hover:text-gold-600;
+    @apply w-full flex items-center justify-between gap-4 py-4 text-left text-base font-display font-semibold text-semantic-text-primary
+           hover:text-semantic-accent transition-colors duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent;
   }
 
   .accordion-content {
@@ -267,73 +246,69 @@
   }
 
   .accordion-content-inner {
-    @apply pb-4 text-sm text-gray-400 leading-relaxed;
-  }
-
-  .section-light .accordion-content-inner {
-    @apply text-gray-600;
+    @apply pb-4 text-sm text-semantic-text-secondary leading-relaxed;
   }
 
   /* ===== Callout ===== */
-  .callout {
-    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4;
-  }
-
   .callout-info {
-    @apply callout bg-blue-500/[0.06] border-blue-400/40 text-gray-300;
+    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-accent/40;
   }
 
   .callout-warning {
-    @apply callout bg-amber-500/[0.06] border-amber-400/40 text-gray-300;
+    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-warning/40;
   }
 
   .callout-danger {
-    @apply callout bg-red-500/[0.06] border-red-400/40 text-gray-300;
+    @apply p-5 text-sm leading-relaxed rounded-sm border-l-4 bg-semantic-surface text-semantic-text-secondary border-semantic-danger/40;
   }
 
-  /* ===== Divider lines ===== */
+  /* ===== Dividers ===== */
   .hr-gold {
-    @apply w-16 h-0.5 bg-gold-500/60;
+    @apply w-16 h-0.5 bg-semantic-accent/60;
   }
 
-  .hr-light {
-    @apply w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent;
-  }
-
-  .section-light .hr-light {
-    @apply via-gray-300;
-  }
-
-  /* ===== Football field pattern for decorative use ===== */
+  /* ===== Football field pattern ===== */
   .field-pattern {
     background: repeating-linear-gradient(
       90deg,
       transparent,
       transparent 40px,
-      rgba(255, 255, 255, 0.015) 40px,
-      rgba(255, 255, 255, 0.015) 41px
+      rgba(255, 255, 255, 0.03) 40px,
+      rgba(255, 255, 255, 0.03) 41px
     );
   }
 
-  /* ===== Responsive tables ===== */
+  .dark .field-pattern {
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.03) 40px,
+      rgba(255, 255, 255, 0.03) 41px
+    );
+  }
+
+  /* ===== Form elements ===== */
+  input[type="range"] {
+    @apply bg-semantic-border/50;
+  }
+
+  input[type="text"],
+  select {
+    @apply bg-semantic-surface text-semantic-text-primary border-semantic-border rounded-sm;
+  }
+
+  /* ===== Table ===== */
   .table-editorial {
     @apply w-full text-sm;
   }
 
   .table-editorial thead th {
-    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500 border-b border-surface-800/60 font-sans;
-  }
-
-  .section-light .table-editorial thead th {
-    @apply text-gray-500 border-b-gray-200;
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-semantic-text-muted border-b border-semantic-border font-sans;
   }
 
   .table-editorial tbody td {
-    @apply px-4 py-3 border-b border-surface-800/30;
-  }
-
-  .section-light .table-editorial tbody td {
-    @apply border-b-gray-100;
+    @apply px-4 py-3 border-b border-semantic-border/50;
   }
 
   .table-editorial tbody tr {
@@ -341,11 +316,12 @@
   }
 
   .table-editorial tbody tr:hover {
-    @apply bg-white/[0.03];
+    @apply bg-semantic-surface-highlight/30;
   }
 
-  .section-light .table-editorial tbody tr:hover {
-    @apply bg-gray-50;
+  /* Chart.js overrides — applied via CSS variables */
+  .chart-container canvas {
+    @apply rounded-sm;
   }
 }
 
@@ -356,7 +332,7 @@
 
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: theme('colors.surface.700') transparent;
+    scrollbar-color: rgb(var(--color-border-strong)) transparent;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -369,7 +345,7 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: theme('colors.surface.700');
+    background-color: rgb(var(--color-border-strong));
     border-radius: 3px;
   }
 }

@@ -151,9 +151,9 @@ function getScore(team: TeamData, key: ScoreKey): number {
 }
 
 function scoreTextClass(value: number): string {
-  if (value >= 9.0) return 'text-green-600'
+  if (value >= 9.0) return 'text-semantic-success'
   if (value >= 8.0) return 'text-blue-600'
-  if (value >= 7.0) return 'text-amber-500'
-  return 'text-red-600'
+  if (value >= 7.0) return 'text-semantic-accent'
+  return 'text-semantic-danger'
 }
 </script>

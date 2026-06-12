@@ -3,7 +3,7 @@
     <button
       v-show="visible"
       type="button"
-      class="fixed bottom-6 right-6 z-40 inline-flex items-center justify-center w-11 h-11 rounded-full bg-marine-800 border border-gold-500/40 text-gold-500 shadow-lg shadow-marine-950/50 transition-all duration-300 hover:bg-marine-700 hover:border-gold-500 hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-500 motion-reduce:transition-none"
+      class="fixed bottom-6 right-6 z-40 inline-flex items-center justify-center w-11 h-11 rounded-full bg-semantic-surface border border-semantic-accent/40 text-semantic-accent shadow-lg shadow-black/20 transition-all duration-300 hover:bg-semantic-surface hover:border-semantic-accent hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-semantic-accent motion-reduce:transition-none"
       aria-label="Voltar ao topo da página"
       title="Voltar ao topo"
       @click="scrollToTop"

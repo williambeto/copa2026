@@ -11,13 +11,13 @@
       <!-- Field pattern -->
       <div class="absolute inset-0 field-pattern opacity-40" />
       <!-- Abstract trophy SVG -->
-      <svg class="absolute -top-10 right-0 lg:right-10 w-80 h-80 lg:w-[500px] lg:h-[500px] text-gold-500/[0.04]" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <svg class="absolute -top-10 right-0 lg:right-10 w-80 h-80 lg:w-[500px] lg:h-[500px] text-semantic-accent/[0.04]" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path d="M100 10 L115 55 L165 55 L125 85 L140 130 L100 105 L60 130 L75 85 L35 55 L85 55 Z" />
         <circle cx="100" cy="145" r="18" />
         <rect x="88" y="160" width="24" height="30" rx="3" />
       </svg>
       <!-- Data dot pattern -->
-      <svg class="absolute top-1/3 right-1/3 w-72 h-72 text-white/[0.015]" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <svg class="absolute top-1/3 right-1/3 w-72 h-72 text-semantic-text-primary/[0.015]" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs><pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="0.6" fill="currentColor" /></pattern></defs>
         <rect width="100" height="100" fill="url(#dots)" />
       </svg>
@@ -73,14 +73,14 @@
                 <span class="stat-block-label">Ranking FIFA</span>
               </div>
               <div class="stat-block">
-                <span class="stat-block-value text-gold-500">Campeã</span>
+                <span class="stat-block-value text-semantic-accent">Campeã</span>
                 <span class="stat-block-label">Euro 2024</span>
               </div>
             </div>
 
             <!-- Editorial strength bars -->
             <div class="mt-10 pt-8 border-t border-surface-800/40">
-              <p class="text-xs font-display font-semibold uppercase tracking-[0.15em] text-gray-500 mb-5">
+              <p class="text-xs font-display font-semibold uppercase tracking-[0.15em] text-semantic-text-muted mb-5">
                 Distribuição de probabilidades
               </p>
               <div class="space-y-3">
@@ -89,7 +89,7 @@
                   :key="bar.label"
                   class="flex items-center gap-3"
                 >
-                  <span class="w-20 flex-shrink-0 text-sm text-gray-400 text-right font-sans font-medium">
+                  <span class="w-20 flex-shrink-0 text-sm text-semantic-text-secondary text-right font-sans font-medium">
                     {{ bar.label }}
                   </span>
                   <div class="flex-1 strength-bar-track">
@@ -98,12 +98,12 @@
                       :style="{ width: bar.percent + '%', minWidth: bar.percent > 0 ? '8px' : '0' }"
                     />
                   </div>
-                  <span class="w-10 text-right text-xs font-mono text-gold-400 tabular-nums font-semibold">
+                  <span class="w-10 text-right text-xs font-mono text-semantic-accent tabular-nums font-semibold">
                     {{ bar.value }}%
                   </span>
                 </div>
               </div>
-              <p class="mt-4 text-xs text-gray-600 leading-relaxed">
+              <p class="mt-4 text-xs text-semantic-text-muted leading-relaxed">
                 Nenhuma candidata possui probabilidade dominante. A Copa permanece aberta e imprevisível.
               </p>
             </div>

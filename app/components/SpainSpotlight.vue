@@ -5,7 +5,7 @@
       <div class="section-inner-narrow">
         <div class="flex gap-1 mb-6" aria-hidden="true">
           <span class="w-10 h-1 bg-red-600" />
-          <span class="w-10 h-1 bg-gold-500" />
+          <span class="w-10 h-1 bg-semantic-accent" />
           <span class="w-10 h-1 bg-red-600" />
         </div>
 
@@ -34,7 +34,7 @@
         </div>
 
         <div class="callout-warning">
-          <p class="font-display font-bold text-sm uppercase tracking-wider text-amber-400 mb-1">
+          <p class="font-display font-bold text-sm uppercase tracking-wider text-semantic-warning mb-1">
             Principal risco
           </p>
           <p class="text-gray-700">
@@ -78,7 +78,7 @@
         </p>
 
         <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
-          <span class="text-sm text-gray-500">Projeção atual</span>
+          <span class="text-sm text-semantic-text-secondary">Projeção atual</span>
           <span class="stat-badge-gold">16,5% de probabilidade</span>
         </div>
       </div>

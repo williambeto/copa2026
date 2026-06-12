@@ -7,7 +7,7 @@
       </h2>
 
       <p class="section-subhead mt-2 mb-8">
-        A projeção combina <strong class="text-white">sete fatores ponderados</strong>:
+        A projeção combina <strong class="text-semantic-text-primary">sete fatores ponderados</strong>:
         rankings FIFA e Elo, forma recente, qualidade e profundidade do elenco,
         situação de lesões, técnico e modelo de jogo, dificuldade do grupo e
         caminho no chaveamento, experiência em mata-mata, adaptação geográfica
@@ -22,14 +22,14 @@
 
       <!-- Default weights -->
       <div class="editorial-card-accent p-6 mb-10">
-        <h3 class="text-base font-display font-bold text-white mb-5">Pesos do modelo editorial</h3>
+        <h3 class="text-base font-display font-bold text-semantic-text-primary mb-5">Pesos do modelo editorial</h3>
         <div class="space-y-3">
           <div
             v-for="item in weightSummary"
             :key="item.label"
             class="flex items-center justify-between text-sm"
           >
-            <span class="text-gray-300 font-medium">{{ item.label }}</span>
+            <span class="text-semantic-text-primary font-medium">{{ item.label }}</span>
             <div class="flex items-center gap-3">
               <div class="strength-bar-track w-28">
                 <div
@@ -37,14 +37,14 @@
                   :style="{ width: `${item.default}%`, minWidth: item.default > 0 ? '4px' : '0' }"
                 />
               </div>
-              <span class="data-value text-xs w-8 text-right text-gold-400">{{ item.default }}%</span>
+              <span class="data-value text-xs w-8 text-right text-semantic-accent">{{ item.default }}%</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Accordion: simulator -->
-      <div class="border-t border-surface-800/40 pt-6">
+      <div class="border-t border-semantic-border pt-6">
         <button
           type="button"
           class="accordion-trigger w-full"
@@ -74,12 +74,12 @@
                 <div class="flex items-center justify-between text-sm">
                   <label
                     :for="`weight-${item.key}`"
-                    class="text-gray-300 font-medium border-b border-dotted border-gray-600"
+                    class="text-semantic-text-primary font-medium border-b border-dotted border-semantic-border"
                     :title="item.description"
                   >
                     {{ item.label }}
                   </label>
-                  <span class="font-mono text-sm font-bold" :class="item.value === item.default ? 'text-gray-400' : 'text-gold-400'">
+                  <span class="font-mono text-sm font-bold" :class="item.value === item.default ? 'text-semantic-text-secondary' : 'text-semantic-accent'">
                     {{ item.value }}
                   </span>
                 </div>
@@ -90,13 +90,13 @@
                     min="0"
                     max="100"
                     :value="item.value"
-                    class="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-gold-500 bg-surface-800/60"
+                    class="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-gold-500 bg-semantic-surface"
                     :aria-label="`Peso para ${item.label}`"
                     @input="updateWeight(item.key, $event)"
                   />
                   <button
                     type="button"
-                    class="px-2 py-1 text-xs rounded hover:bg-surface-800 text-gray-500 hover:text-gray-300"
+                    class="px-2 py-1 text-xs rounded hover:bg-semantic-surface text-semantic-text-secondary hover:text-semantic-text-primary"
                     :aria-label="`Redefinir ${item.label}`"
                     @click="resetWeight(item.key)"
                   >
@@ -109,11 +109,11 @@
             <div class="flex items-center gap-3 pb-2">
               <div
                 class="px-3 py-1.5 rounded-sm text-xs font-medium"
-                :class="totalWeight === 100 ? 'stat-badge-neutral bg-green-500/15 text-green-400 border-green-500/25' : 'bg-red-500/15 text-red-400 border-red-500/25'"
+                :class="totalWeight === 100 ? 'stat-badge-neutral bg-semantic-success/15 text-semantic-success border-semantic-success/25' : 'bg-semantic-danger/15 text-semantic-danger border-semantic-danger/25'"
               >
                 Soma: {{ totalWeight }}/100
               </div>
-              <p v-if="totalWeight !== 100" class="text-xs text-red-400" role="alert">
+              <p v-if="totalWeight !== 100" class="text-xs text-semantic-danger" role="alert">
                 A soma deve ser exatamente 100 para recalcular.
               </p>
             </div>
@@ -137,24 +137,24 @@
             </div>
 
             <div v-if="recalculatedRanking.length > 0" class="editorial-card-border p-5 mt-4">
-              <h4 class="text-base font-display font-bold text-white mb-3">Simulação personalizada</h4>
+              <h4 class="text-base font-display font-bold text-semantic-text-primary mb-3">Simulação personalizada</h4>
               <ol class="space-y-2">
                 <li
                   v-for="(item, idx) in recalculatedRanking"
                   :key="item.team"
-                  class="flex items-center gap-3 p-2.5 rounded-sm bg-surface-800/30"
+                  class="flex items-center gap-3 p-2.5 rounded-sm bg-semantic-surface"
                 >
                   <span
                     class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                    :class="idx === 0 ? 'bg-gold-500 text-navy-950' : 'bg-surface-800 text-gray-400'"
+                    :class="idx === 0 ? 'bg-semantic-accent text-semantic-accent-foreground' : 'bg-semantic-surface text-semantic-text-secondary'"
                   >
                     {{ idx + 1 }}
                   </span>
-                  <span class="font-semibold text-gray-200 flex-1 text-sm">{{ item.flag }} {{ item.team }}</span>
-                  <span class="text-sm font-mono text-gold-400 data-value">{{ item.score }}</span>
+                  <span class="font-semibold text-semantic-text-primary flex-1 text-sm">{{ item.flag }} {{ item.team }}</span>
+                  <span class="text-sm font-mono text-semantic-accent data-value">{{ item.score }}</span>
                 </li>
               </ol>
-              <p class="mt-4 text-xs text-gray-500">
+              <p class="mt-4 text-xs text-semantic-text-secondary">
                 Este ranking é uma simulação personalizada baseada nos pesos definidos acima.
                 Não substitui a estimativa editorial principal.
               </p>

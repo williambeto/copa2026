@@ -23,24 +23,24 @@
           </div>
 
           <div :class="idx % 2 === 1 ? 'md:col-span-3 md:order-1' : 'md:col-span-3'">
-            <h3 class="text-2xl lg:text-3xl font-display font-extrabold text-gray-900 leading-tight">
+            <h3 class="text-2xl lg:text-3xl font-display font-extrabold text-semantic-text-primary leading-tight">
               {{ item.team.name }}
             </h3>
 
             <div class="mt-4 flex items-center gap-2">
-              <span class="text-xs font-semibold uppercase tracking-wider text-gold-600">Jogador-chave</span>
+              <span class="text-xs font-semibold uppercase tracking-wider text-semantic-accent">Jogador-chave</span>
               <span class="tag-gold text-sm">{{ item.team.keyPlayers?.[0] }}</span>
             </div>
 
             <div class="mt-4">
-              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Principal força</p>
-              <p class="font-sans text-base text-gray-700 mt-1 leading-relaxed font-medium">
+              <p class="text-xs font-semibold uppercase tracking-wider text-semantic-text-secondary">Principal força</p>
+              <p class="font-sans text-base text-semantic-text-primary mt-1 leading-relaxed font-medium">
                 {{ item.team.strengths?.[0] }}
               </p>
             </div>
 
-            <div class="mt-6 pt-6 border-t border-gray-200">
-              <p class="font-serif text-base italic text-gray-600 leading-relaxed">
+            <div class="mt-6 pt-6 border-t border-semantic-border">
+              <p class="font-serif text-base italic text-semantic-text-muted leading-relaxed">
                 {{ item.team.justification }}
               </p>
             </div>

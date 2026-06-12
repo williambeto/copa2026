@@ -17,16 +17,16 @@
         <article class="editorial-card-border p-6 lg:p-8">
           <div class="flex items-center gap-3 mb-5">
             <span class="w-9 h-9 rounded-sm bg-blue-500/15 flex items-center justify-center text-blue-400 font-display font-bold text-sm border border-blue-500/20">FIFA</span>
-            <h3 class="font-display text-xl font-bold text-white">Ranking FIFA</h3>
+            <h3 class="font-display text-xl font-bold text-semantic-text-primary">Ranking FIFA</h3>
           </div>
 
-          <p class="text-sm text-gray-400 leading-relaxed mb-5 font-sans">
+          <p class="text-sm text-semantic-text-secondary leading-relaxed mb-5 font-sans">
             Sistema oficial da Federação Internacional de Futebol, criado em 1993.
             Utilizado institucionalmente para definir cabeças de chave, distribuição de potes
             e sorteios de competições oficiais.
           </p>
 
-          <ul class="space-y-3 text-sm text-gray-400">
+          <ul class="space-y-3 text-sm text-semantic-text-secondary">
             <li class="flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-400 mt-1.5 shrink-0" aria-hidden="true" />
               <span class="font-sans">Considera o peso da partida — amistosos valem menos que jogos de Copa.</span>
@@ -41,7 +41,7 @@
             </li>
           </ul>
 
-          <div class="mt-6 pt-5 border-t border-surface-800/40">
+          <div class="mt-6 pt-5 border-t border-semantic-border">
             <span class="stat-badge-neutral text-xs">Oficial · Usado em sorteios</span>
           </div>
         </article>
@@ -49,32 +49,32 @@
         <!-- Elo column -->
         <article class="editorial-card-border p-6 lg:p-8">
           <div class="flex items-center gap-3 mb-5">
-            <span class="w-9 h-9 rounded-sm bg-gold-500/15 flex items-center justify-center text-gold-400 font-display font-bold text-sm border border-gold-500/20">ELO</span>
-            <h3 class="font-display text-xl font-bold text-white">Ranking Elo</h3>
+            <span class="w-9 h-9 rounded-sm bg-semantic-accent/15 flex items-center justify-center text-semantic-accent font-display font-bold text-sm border border-semantic-accent/20">ELO</span>
+            <h3 class="font-display text-xl font-bold text-semantic-text-primary">Ranking Elo</h3>
           </div>
 
-          <p class="text-sm text-gray-400 leading-relaxed mb-5 font-sans">
+          <p class="text-sm text-semantic-text-secondary leading-relaxed mb-5 font-sans">
             Sistema independente e não oficial, adaptado do método criado por Arpad Elo
             para o xadrez. Amplamente usado por analistas esportivos por sua sensibilidade
             à forma real das seleções.
           </p>
 
-          <ul class="space-y-3 text-sm text-gray-400">
+          <ul class="space-y-3 text-sm text-semantic-text-secondary">
             <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 mt-1.5 shrink-0" aria-hidden="true" />
+              <span class="w-1.5 h-1.5 rounded-full bg-semantic-accent mt-1.5 shrink-0" aria-hidden="true" />
               <span class="font-sans">Considera força do adversário, diferença de gols e mando de campo.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 mt-1.5 shrink-0" aria-hidden="true" />
+              <span class="w-1.5 h-1.5 rounded-full bg-semantic-accent mt-1.5 shrink-0" aria-hidden="true" />
               <span class="font-sans">Atualiza após cada partida — captura mudanças de forma em tempo real.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 mt-1.5 shrink-0" aria-hidden="true" />
+              <span class="w-1.5 h-1.5 rounded-full bg-semantic-accent mt-1.5 shrink-0" aria-hidden="true" />
               <span class="font-sans">Considerado mais preciso por refletir a qualidade real e não o peso da competição.</span>
             </li>
           </ul>
 
-          <div class="mt-6 pt-5 border-t border-surface-800/40">
+          <div class="mt-6 pt-5 border-t border-semantic-border">
             <span class="stat-badge-gold text-xs">Independente · Atualização contínua</span>
           </div>
         </article>
@@ -82,7 +82,7 @@
 
       <!-- Comparison table -->
       <div class="editorial-card-border p-6 lg:p-8 mb-8">
-        <h3 class="font-display text-lg font-bold text-white mb-6">
+        <h3 class="font-display text-lg font-bold text-semantic-text-primary mb-6">
           Comparação direta: as seis favoritas
         </h3>
         <div class="overflow-x-auto">
@@ -99,13 +99,13 @@
               <tr v-for="entry in tableData" :key="entry.id">
                 <td class="flex items-center gap-2.5">
                   <span class="text-lg leading-none" aria-hidden="true">{{ entry.flag }}</span>
-                  <span class="font-medium text-white font-sans">{{ entry.name }}</span>
+                  <span class="font-medium text-semantic-text-primary font-sans">{{ entry.name }}</span>
                 </td>
                 <td class="text-center">
-                  <span class="font-mono tabular-nums text-gray-300">{{ entry.fifaRank }}º</span>
+                  <span class="font-mono tabular-nums text-semantic-text-primary">{{ entry.fifaRank }}º</span>
                 </td>
                 <td class="text-center">
-                  <span class="font-mono tabular-nums text-gray-300">{{ entry.eloRank }}º</span>
+                  <span class="font-mono tabular-nums text-semantic-text-primary">{{ entry.eloRank }}º</span>
                 </td>
                 <td class="text-center">
                   <span
@@ -119,13 +119,13 @@
             </tbody>
           </table>
         </div>
-        <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
+        <div class="mt-4 flex items-center gap-4 text-xs text-semantic-text-secondary">
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-green-400/60" aria-hidden="true" />
+            <span class="w-2 h-2 rounded-full bg-semantic-success/60" aria-hidden="true" />
             Positivo = melhor no Elo
           </span>
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-red-400/60" aria-hidden="true" />
+            <span class="w-2 h-2 rounded-full bg-semantic-danger/60" aria-hidden="true" />
             Negativo = melhor na FIFA
           </span>
         </div>
@@ -174,9 +174,9 @@ const tableData = computed<TableEntry[]>(() =>
         eloRank: team.eloRank,
         diff,
         diffClass:
-          diff > 0 ? 'text-green-400' :
-          diff < 0 ? 'text-red-400' :
-          'text-gray-500',
+          diff > 0 ? 'text-semantic-success' :
+          diff < 0 ? 'text-semantic-danger' :
+          'text-semantic-text-secondary',
       }
     })
     .filter((entry): entry is TableEntry => entry !== null)

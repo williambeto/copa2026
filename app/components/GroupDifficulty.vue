@@ -25,7 +25,7 @@
 
           <!-- Opponents -->
           <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 font-sans">Adversários</p>
+            <p class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider mb-2 font-sans">Adversários</p>
             <div class="flex flex-wrap gap-1.5">
               <span
                 v-for="opp in entry.group.opponents"
@@ -39,7 +39,7 @@
 
           <!-- Difficulty -->
           <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 font-sans">Dificuldade</p>
+            <p class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider mb-2 font-sans">Dificuldade</p>
             <span
               class="stat-badge"
               :class="difficultyBadgeClass(entry.group.difficulty)"
@@ -50,10 +50,10 @@
 
           <!-- First place chance -->
           <div class="mb-4">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 font-sans">Chance de 1º lugar</p>
+            <p class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider mb-2 font-sans">Chance de 1º lugar</p>
             <div class="flex items-center gap-3">
               <div
-                class="strength-bar bg-gray-200 w-full flex-1"
+                class="strength-bar bg-semantic-surface w-full flex-1"
                 role="progressbar"
                 :aria-valuenow="entry.group.firstPlaceChance * 100"
                 aria-valuemin="0"
@@ -73,8 +73,8 @@
           </div>
 
           <!-- Knockout impact -->
-          <div class="mt-auto pt-4 border-t border-gray-200">
-            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1 font-sans">Impacto no mata-mata</p>
+          <div class="mt-auto pt-4 border-t border-semantic-border">
+            <p class="text-xs font-semibold text-semantic-text-secondary uppercase tracking-wider mb-1 font-sans">Impacto no mata-mata</p>
             <p class="text-sm leading-relaxed font-sans">{{ entry.group.knockoutImpact }}</p>
           </div>
         </article>
@@ -143,23 +143,23 @@ function difficultyBadgeClass(difficulty: GroupInfo['difficulty']): string {
   switch (difficulty) {
     case 'Muito favorável':
     case 'Favorável':
-      return 'bg-green-500/10 text-green-600 border border-green-500/20'
+      return 'bg-semantic-success/10 text-semantic-success border border-semantic-success/20'
     case 'Moderado':
-      return 'bg-amber-500/10 text-amber-500 border border-amber-500/20'
+      return 'bg-semantic-warning/10 text-semantic-warning border border-semantic-warning/20'
     case 'Perigoso na estreia':
-      return 'bg-amber-500/15 text-amber-600 border border-amber-500/25'
+      return 'bg-semantic-warning/15 text-semantic-warning border border-semantic-warning/25'
     case 'Difícil':
     case 'Muito difícil':
-      return 'bg-red-500/10 text-red-600 border border-red-500/20'
+      return 'bg-semantic-danger/10 text-semantic-danger border border-semantic-danger/20'
     default:
-      return 'bg-gray-500/10 text-gray-600 border border-gray-500/20'
+      return 'bg-semantic-surface text-semantic-text-muted border border-semantic-border'
   }
 }
 
 function firstPlaceFillClass(chance: number): string {
-  if (chance >= 0.8) return 'bg-green-500'
-  if (chance >= 0.65) return 'bg-amber-500'
-  if (chance >= 0.5) return 'bg-orange-500'
-  return 'bg-red-500'
+  if (chance >= 0.8) return 'bg-semantic-success'
+  if (chance >= 0.65) return 'bg-semantic-warning'
+  if (chance >= 0.5) return 'bg-semantic-warning'
+  return 'bg-semantic-danger'
 }
 </script>

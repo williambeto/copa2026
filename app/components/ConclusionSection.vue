@@ -13,17 +13,17 @@
 
       <div class="grid md:grid-cols-2 gap-8 mb-10">
         <div>
-          <h3 class="text-base font-display font-bold text-white mb-4 flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-green-400" aria-hidden="true" />
+          <h3 class="text-base font-display font-bold text-semantic-text-primary mb-4 flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-semantic-success" aria-hidden="true" />
             Por que a Espanha lidera
           </h3>
           <ul class="space-y-2.5" role="list">
             <li
               v-for="reason in reasons"
               :key="reason"
-              class="flex items-start gap-3 text-sm text-gray-300 leading-relaxed"
+              class="flex items-start gap-3 text-sm text-semantic-text-primary leading-relaxed"
             >
-              <span class="text-green-400 mt-0.5 shrink-0 font-bold" aria-hidden="true">&#10003;</span>
+              <span class="text-semantic-success mt-0.5 shrink-0 font-bold" aria-hidden="true">&#10003;</span>
               <span>{{ reason }}</span>
             </li>
           </ul>
@@ -31,12 +31,12 @@
 
         <div class="callout-warning" role="alert">
           <div class="flex items-start gap-3">
-            <span class="text-amber-400 text-lg mt-0.5 shrink-0" aria-hidden="true">&#9888;</span>
+            <span class="text-semantic-warning text-lg mt-0.5 shrink-0" aria-hidden="true">&#9888;</span>
             <div>
-              <h3 class="text-amber-400 font-display font-bold mb-2 text-sm">
+              <h3 class="text-semantic-warning font-display font-bold mb-2 text-sm">
                 Principal risco de esta conclusão estar errada
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-semantic-text-secondary leading-relaxed">
                 A condição física de Lamine Yamal (sobrecarregado), Rodri (retornando) e
                 Pedri (histórico de lesões) introduz vulnerabilidade.
                 França e Argentina possuem experiência superior em jogos eliminatórios,
@@ -51,7 +51,7 @@
 
       <div class="hr-gold mx-auto" />
 
-      <p class="mt-6 text-sm text-gray-500 text-center max-w-lg mx-auto leading-relaxed">
+      <p class="mt-6 text-sm text-semantic-text-secondary text-center max-w-lg mx-auto leading-relaxed">
         A Copa do Mundo permanece um torneio de alta imprevisibilidade.
         Nenhuma candidata possui probabilidade dominante, e fatores como lesões,
         chaveamento e desempenho em jogos únicos podem alterar radicalmente o cenário.

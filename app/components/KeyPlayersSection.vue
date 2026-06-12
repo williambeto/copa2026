@@ -14,17 +14,17 @@
       <div
         role="tablist"
         aria-label="Seleções"
-        class="flex overflow-x-auto gap-1 pb-3 mb-10 border-b border-gray-200"
+        class="flex overflow-x-auto gap-1 pb-3 mb-10 border-b border-semantic-border"
       >
         <button
           v-for="team in teams"
           :key="team.id"
           role="tab"
           type="button"
-          class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-t-lg text-sm font-display font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 whitespace-nowrap"
+          class="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2.5 rounded-t-lg text-sm font-display font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semantic-accent whitespace-nowrap"
           :class="activeTab === team.id
-            ? 'text-gold-600 bg-white border-b-2 border-gold-500'
-            : 'text-gray-500 hover:text-gray-700 hover:bg-white/40'"
+            ? 'text-semantic-accent bg-semantic-surface border-b-2 border-semantic-accent'
+            : 'text-semantic-text-secondary hover:text-semantic-text-primary hover:bg-semantic-surface/40'"
           :aria-selected="activeTab === team.id"
           :aria-controls="`kp-panel-${team.id}`"
           :tabindex="activeTab === team.id ? 0 : -1"
@@ -48,32 +48,32 @@
           <div class="editorial-card-border p-5">
             <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-gold-500/30 to-navy-800/60" />
             <span class="tag-gold text-xs mb-2 inline-block">Capitão</span>
-            <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.captain }}</h4>
-            <p class="text-xs text-gray-500 mt-1">Líder técnico e emocional</p>
+            <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.captain }}</h4>
+            <p class="text-xs text-semantic-text-secondary mt-1">Líder técnico e emocional</p>
           </div>
 
           <!-- Decisive player -->
           <div class="editorial-card-border p-5">
             <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-green-500/30 to-navy-800/60" />
             <span class="tag-gold text-xs mb-2 inline-block">Jogador decisivo</span>
-            <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.decisive }}</h4>
-            <p class="text-xs text-gray-500 mt-1">Capaz de decidir partidas</p>
+            <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.decisive }}</h4>
+            <p class="text-xs text-semantic-text-secondary mt-1">Capaz de decidir partidas</p>
           </div>
 
           <!-- Rising star -->
           <div class="editorial-card-border p-5">
             <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-blue-500/30 to-navy-800/60" />
             <span class="tag-gold text-xs mb-2 inline-block">Estrela em ascensão</span>
-            <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.risingStar }}</h4>
-            <p class="text-xs text-gray-500 mt-1">Jovem talento em destaque</p>
+            <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.risingStar }}</h4>
+            <p class="text-xs text-semantic-text-secondary mt-1">Jovem talento em destaque</p>
           </div>
 
           <!-- Best reserve -->
           <div class="editorial-card-border p-5">
             <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-amber-500/30 to-navy-800/60" />
             <span class="tag-gold text-xs mb-2 inline-block">Melhor reserva</span>
-            <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.bestReserve }}</h4>
-            <p class="text-xs text-gray-500 mt-1">Impacto saindo do banco</p>
+            <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.bestReserve }}</h4>
+            <p class="text-xs text-semantic-text-secondary mt-1">Impacto saindo do banco</p>
           </div>
 
           <!-- Strongest position -->
@@ -82,8 +82,8 @@
             <div class="flex items-center gap-3 mb-3">
               <span class="text-2xl">{{ positionIcon(activeTeamData.strongestPosition) }}</span>
               <div>
-                <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.strongestPosition }}</h4>
-                <p class="text-xs text-gray-500">Profundidade e qualidade</p>
+                <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.strongestPosition }}</h4>
+                <p class="text-xs text-semantic-text-secondary">Profundidade e qualidade</p>
               </div>
             </div>
             <div class="strength-bar-track mt-2">
@@ -92,7 +92,7 @@
                 style="width: 90%"
               />
             </div>
-            <p class="text-xs text-gray-500 mt-1">{{ activeTeamData.strongestNote }}</p>
+            <p class="text-xs text-semantic-text-secondary mt-1">{{ activeTeamData.strongestNote }}</p>
           </div>
 
           <!-- Weakest position -->
@@ -101,8 +101,8 @@
             <div class="flex items-center gap-3 mb-3">
               <span class="text-2xl">{{ positionIcon(activeTeamData.weakestPosition) }}</span>
               <div>
-                <h4 class="font-display font-bold text-lg text-gray-900">{{ activeTeamData.weakestPosition }}</h4>
-                <p class="text-xs text-gray-500">Ponto de atenção</p>
+                <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.weakestPosition }}</h4>
+                <p class="text-xs text-semantic-text-secondary">Ponto de atenção</p>
               </div>
             </div>
             <div class="strength-bar-track mt-2">
@@ -111,13 +111,13 @@
                 style="width: 55%"
               />
             </div>
-            <p class="text-xs text-gray-500 mt-1">{{ activeTeamData.weakestNote }}</p>
+            <p class="text-xs text-semantic-text-secondary mt-1">{{ activeTeamData.weakestNote }}</p>
           </div>
         </div>
 
         <!-- Full squad list -->
         <div class="editorial-card-border mt-6 p-5">
-          <h4 class="font-display font-semibold text-gray-900 mb-3">Jogadores-chave</h4>
+          <h4 class="font-display font-semibold text-semantic-text-primary mb-3">Jogadores-chave</h4>
           <div class="flex flex-wrap gap-2">
             <span
               v-for="player in activeTeamData.allKeyPlayers"
