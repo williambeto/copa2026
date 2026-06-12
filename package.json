@@ -9,17 +9,21 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "typecheck": "nuxi typecheck",
+    "test": "vitest run",
     "postinstall": "nuxt prepare",
     "validate": "ai-workflow collect-evidence"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@types/node": "^22.0.0",
+    "@vue/test-utils": "^2.4.11",
     "@williambeto/ai-workflow": "^2.1.0",
     "chart.js": "^4.4.0",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "happy-dom": "^20.10.2",
     "nuxt": "^3.15.0",
     "typescript": "^5.7.0",
+    "vitest": "^4.1.8",
     "vue": "^3.5.0",
     "vue-chartjs": "^5.3.0",
     "vue-tsc": "^3.3.4"
