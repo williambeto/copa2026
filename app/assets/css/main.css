@@ -107,6 +107,11 @@
     @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10;
   }
 
+  /* Alias para compatibilidade */
+  .section-container {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10;
+  }
+
   .section-inner-narrow {
     @apply max-w-[820px] mx-auto px-4 sm:px-6 lg:px-10;
   }
@@ -150,12 +155,30 @@
     @apply bg-semantic-surface rounded-sm transition-colors duration-300;
   }
 
+  .dark .editorial-card {
+    background-color: rgba(16, 34, 49, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
   .editorial-card-accent {
     @apply editorial-card border-l-4 border-semantic-accent/50;
   }
 
   .editorial-card-border {
-    @apply editorial-card border border-semantic-border;
+    @apply editorial-card border border-semantic-border transition-all duration-300;
+  }
+
+  .dark .editorial-card-border {
+    background-color: rgba(16, 34, 49, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(38, 59, 74, 0.6);
+  }
+
+  .dark .editorial-card-border:hover {
+    border-color: rgba(214, 167, 44, 0.3);
+    box-shadow: 0 4px 20px -2px rgba(214, 167, 44, 0.05);
   }
 
   /* ===== Photo placeholder ===== */
@@ -355,5 +378,56 @@
   .scrollbar-thin::-webkit-scrollbar-thumb {
     background-color: rgb(var(--color-border-strong));
     border-radius: 3px;
+  }
+
+  /* Safe area para mobile (notch) */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Surface color aliases para compatibilidade */
+  .text-surface-400 {
+    color: rgb(var(--color-text-muted));
+  }
+  .text-surface-500 {
+    color: rgb(var(--color-text-secondary));
+  }
+}
+
+/* ===== Animações de entrada ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out 0.15s both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-slide-in-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

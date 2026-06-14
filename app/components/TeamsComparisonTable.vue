@@ -8,7 +8,7 @@
         As notas de Espanha, França e Inglaterra em cada dimensão analisada pelo modelo.
       </p>
 
-      <div class="overflow-x-auto rounded-sm border border-gray-200 mb-8">
+      <div class="overflow-x-auto rounded-sm border border-semantic-border mb-8">
         <table class="table-editorial">
           <thead>
             <tr>
@@ -23,7 +23,7 @@
           </thead>
           <tbody>
             <tr v-for="criteria in comparisonCriteria" :key="criteria.key">
-              <td class="font-medium text-gray-900">{{ criteria.label }}</td>
+              <td class="font-medium text-semantic-text-primary">{{ criteria.label }}</td>
               <td v-for="team in topThree" :key="team.id" class="text-center">
                 <span class="data-value" :class="scoreTextClass(getScore(team, criteria.key))">
                   {{ getScore(team, criteria.key).toFixed(1) }}
@@ -75,13 +75,13 @@
                     <td>
                       <div class="flex items-center gap-2">
                         <span>{{ team.flag }}</span>
-                        <span class="font-medium text-gray-900">{{ team.name }}</span>
+                        <span class="font-medium text-semantic-text-primary">{{ team.name }}</span>
                       </div>
                     </td>
-                    <td class="text-center font-mono text-gray-700">
+                    <td class="text-center font-mono text-semantic-text-secondary">
                       {{ team.fifaRank !== null ? team.fifaRank + 'º' : '—' }}
                     </td>
-                    <td class="text-center font-mono text-gray-700">
+                    <td class="text-center font-mono text-semantic-text-secondary">
                       {{ team.eloRank !== null ? team.eloRank + 'º' : '—' }}
                     </td>
                     <td class="text-center">
@@ -150,10 +150,10 @@ function getScore(team: TeamData, key: ScoreKey): number {
   return team[key]
 }
 
-function scoreTextClass(value: number): string {
-  if (value >= 9.0) return 'text-semantic-success'
-  if (value >= 8.0) return 'text-blue-600'
-  if (value >= 7.0) return 'text-semantic-accent'
+function scoreTextClass(score: number): string {
+  if (score >= 8.5) return 'text-semantic-success'
+  if (score >= 7)   return 'text-semantic-accent'
+  if (score >= 5.5) return 'text-semantic-text-primary'
   return 'text-semantic-danger'
 }
 </script>

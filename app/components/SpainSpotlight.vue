@@ -23,11 +23,11 @@
           <div v-for="evidence in evidences" :key="evidence.title" class="space-y-2">
             <div class="flex items-center gap-3">
               <span class="text-2xl leading-none" aria-hidden="true">{{ evidence.icon }}</span>
-              <h3 class="font-display font-bold text-xl text-gray-900 leading-tight">
+              <h3 class="font-display font-bold text-xl text-semantic-text-primary leading-tight">
                 {{ evidence.title }}
               </h3>
             </div>
-            <p class="text-base text-gray-700 leading-relaxed pl-11">
+            <p class="text-base text-semantic-text-secondary leading-relaxed pl-11">
               {{ evidence.text }}
             </p>
           </div>
@@ -37,7 +37,7 @@
           <p class="font-display font-bold text-sm uppercase tracking-wider text-semantic-warning mb-1">
             Principal risco
           </p>
-          <p class="text-gray-700">
+          <p class="text-semantic-text-secondary">
             A dependência criativa de Lamine Yamal, a condição física de Rodri e a
             possível dificuldade da Espanha em partidas físicas e caóticas contra
             seleções que explorem a transição defensiva são os principais fatores
@@ -47,19 +47,17 @@
       </div>
     </section>
 
-    <!-- Photo placeholder break -->
+    <!-- Editorial illustration break -->
     <section class="section-dark">
       <div class="section-inner-narrow">
-        <figure class="photo-placeholder rounded-sm bg-gradient-to-br from-red-600/40 via-navy-900 to-gold-500/20 aspect-[21/9]">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center">
-              <span class="text-7xl block mb-3" aria-hidden="true">🇪🇸</span>
-              <p class="font-display text-sm uppercase tracking-[0.3em] text-white/40">
-                La Roja · Copa do Mundo 2026
-              </p>
-            </div>
-          </div>
-          <figcaption class="absolute bottom-3 right-4 text-xs text-white/30">
+        <figure class="relative overflow-hidden rounded-sm border border-semantic-border/40 aspect-[21/9]">
+          <img
+            src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=85"
+            alt="Torcedores em estádio de futebol — atmosfera da Copa do Mundo"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <figcaption class="absolute bottom-3 right-4 text-xs text-white/50 bg-black/40 px-2 py-1 rounded-sm font-mono backdrop-blur-sm">
             Ilustração editorial
           </figcaption>
         </figure>
@@ -69,7 +67,7 @@
     <!-- Closing analysis -->
     <section class="section-light">
       <div class="section-inner-narrow">
-        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+        <p class="text-lg text-semantic-text-secondary leading-relaxed mb-6">
           Com uma média de idade de apenas 26,1 anos, a Espanha combina a experiência
           de jogadores como Rodri e Carvajal com a explosão de talentos como Lamine
           Yamal, Nico Williams e Pedri. O modelo de jogo consolidado por Luis de la
@@ -77,7 +75,7 @@
           contra diferentes estilos de adversário.
         </p>
 
-        <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+        <div class="flex items-center gap-3 pt-4 border-t border-semantic-border">
           <span class="text-sm text-semantic-text-secondary">Projeção atual</span>
           <span class="stat-badge-gold">16,5% de probabilidade</span>
         </div>

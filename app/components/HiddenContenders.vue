@@ -1,5 +1,5 @@
 <template>
-  <section class="section-light" aria-labelledby="hidden-heading">
+  <section id="surpresas" class="section-light" aria-labelledby="hidden-heading">
     <div class="section-inner">
       <p class="section-label">Surpresas</p>
       <h2 id="hidden-heading" class="section-headline">

@@ -46,7 +46,14 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Captain -->
           <div class="editorial-card-border p-5">
-            <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-gold-500/30 to-navy-800/60" />
+            <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
+              <img
+                src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80"
+                alt="Capitão em campo"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
             <span class="tag-gold text-xs mb-2 inline-block">Capitão</span>
             <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.captain }}</h4>
             <p class="text-xs text-semantic-text-secondary mt-1">Líder técnico e emocional</p>
@@ -54,7 +61,14 @@
 
           <!-- Decisive player -->
           <div class="editorial-card-border p-5">
-            <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-green-500/30 to-navy-800/60" />
+            <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
+              <img
+                src="https://images.unsplash.com/photo-1431324155629-1aa5d55f1bd8?w=600&q=80"
+                alt="Jogador decisivo em treino"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
             <span class="tag-gold text-xs mb-2 inline-block">Jogador decisivo</span>
             <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.decisive }}</h4>
             <p class="text-xs text-semantic-text-secondary mt-1">Capaz de decidir partidas</p>
@@ -62,7 +76,14 @@
 
           <!-- Rising star -->
           <div class="editorial-card-border p-5">
-            <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-blue-500/30 to-navy-800/60" />
+            <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
+              <img
+                src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=600&q=80"
+                alt="Jovem talento em ascensão"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
             <span class="tag-gold text-xs mb-2 inline-block">Estrela em ascensão</span>
             <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.risingStar }}</h4>
             <p class="text-xs text-semantic-text-secondary mt-1">Jovem talento em destaque</p>
@@ -70,7 +91,14 @@
 
           <!-- Best reserve -->
           <div class="editorial-card-border p-5">
-            <div class="photo-placeholder w-full aspect-[3/2] rounded-sm mb-3 bg-gradient-to-br from-amber-500/30 to-navy-800/60" />
+            <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
+              <img
+                src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&q=80"
+                alt="Jogador reserva aguardando entrada"
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
             <span class="tag-gold text-xs mb-2 inline-block">Melhor reserva</span>
             <h4 class="font-display font-bold text-lg text-semantic-text-primary">{{ activeTeamData.bestReserve }}</h4>
             <p class="text-xs text-semantic-text-secondary mt-1">Impacto saindo do banco</p>

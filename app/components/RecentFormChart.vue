@@ -1,5 +1,5 @@
 <template>
-  <section class="section-dark" aria-labelledby="form-heading">
+  <section id="analises" class="section-dark" aria-labelledby="form-heading">
     <div class="section-inner">
       <p class="section-label">Análise de desempenho</p>
       <h2 id="form-heading" class="section-headline">

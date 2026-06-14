@@ -29,5 +29,7 @@ useSeoMeta({
   ogDescription: 'Análise editorial baseada em dados: rankings FIFA e Elo, desempenho recente, qualidade do elenco, lesões e cenários até a final.',
   ogType: 'website',
   ogLocale: 'pt_BR',
+  ogImage: '/og-image.png',
+  twitterImage: '/og-image.png',
 })
 </script>

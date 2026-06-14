@@ -3,7 +3,7 @@
     class="border-t border-semantic-border bg-semantic-background transition-colors duration-300"
     role="contentinfo"
   >
-    <div class="section-container py-12 lg:py-16">
+    <div class="section-inner py-12 lg:py-16">
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
         <!-- Brand -->
         <div class="space-y-4">

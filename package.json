@@ -1,7 +1,11 @@
 {
-  "name": "world-cup-2026-intelligence",
+  "name": "copa2026",
   "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:williambeto/copa2026.git"
+  },
   "type": "module",
   "scripts": {
     "build": "nuxt build",

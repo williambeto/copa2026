@@ -32,7 +32,7 @@
             <p class="text-xs font-semibold uppercase tracking-wider text-semantic-accent mb-0.5">
               {{ card.label }}
             </p>
-            <p class="text-lg font-display font-bold text-gray-900 leading-snug">
+            <p class="text-lg font-display font-bold text-semantic-text-primary leading-snug">
               {{ card.team }}
             </p>
             <p

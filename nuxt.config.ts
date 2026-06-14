@@ -3,6 +3,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
   srcDir: 'app/',
+  nitro: {
+    preset: 'cloudflare-pages',
+  },
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
   app: {
@@ -17,9 +20,11 @@ export default defineNuxtConfig({
         { property: 'og:description', content: 'Análise editorial baseada em dados: rankings FIFA e Elo, desempenho recente, qualidade do elenco, lesões e cenários até a final.' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'pt_BR' },
+        { property: 'og:image', content: '/og-image.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'World Cup 2026 Intelligence' },
         { name: 'twitter:description', content: 'Análise baseada em dados sobre as probabilidades de cada seleção na Copa de 2026.' },
+        { name: 'twitter:image', content: '/og-image.png' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
