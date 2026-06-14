@@ -33,9 +33,9 @@
       </div>
 
       <!-- Bracket Container -->
-      <div class="relative w-full overflow-x-auto pb-6">
+      <div class="relative w-full overflow-x-auto overflow-y-hidden pb-6">
         <!-- Desktop: Flex row / Mobile: Toggle column -->
-        <div class="flex min-w-[320px] md:min-w-[900px] lg:min-w-[1100px] justify-between items-stretch gap-6 h-auto md:h-[760px]">
+        <div class="flex min-w-[320px] md:min-w-[900px] lg:min-w-[1100px] justify-between items-stretch gap-6 h-auto md:h-[1050px]">
           
           <!-- Column Loop -->
           <div
