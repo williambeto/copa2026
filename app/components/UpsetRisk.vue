@@ -22,7 +22,7 @@
               class="pb-4 border-b border-semantic-border last:border-0"
             >
               <div class="flex items-center gap-2 mb-2">
-                <span aria-hidden="true" class="text-xl">{{ item.flag }}</span>
+                <img :src="getCountryFlagUrl(item.team)" :alt="item.team" class="w-5 h-3.5 object-cover rounded-sm shadow-sm" aria-hidden="true" />
                 <span class="font-display font-bold text-semantic-text-primary">{{ item.team }}</span>
               </div>
               <div class="flex flex-wrap gap-1.5">
@@ -50,7 +50,7 @@
               class="pb-4 border-b border-semantic-border last:border-0"
             >
               <div class="flex items-center gap-2 mb-2">
-                <span aria-hidden="true" class="text-xl">{{ item.flag }}</span>
+                <img :src="getCountryFlagUrl(item.team)" :alt="item.team" class="w-5 h-3.5 object-cover rounded-sm shadow-sm" aria-hidden="true" />
                 <span class="font-display font-bold text-semantic-text-primary">{{ item.team }}</span>
               </div>
               <div class="flex flex-wrap gap-1.5">

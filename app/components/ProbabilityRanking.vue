@@ -28,7 +28,12 @@
 
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-3 mb-2">
-                <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ item.flag }}</span>
+                <img
+                  :src="getCountryFlagUrl(item.team)"
+                  :alt="item.team"
+                  class="w-6 h-4 object-cover rounded-sm shadow-sm shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
                 <span
                   class="font-display font-bold leading-tight truncate"
                   :class="index < 3 ? 'text-2xl text-semantic-text-primary' : 'text-xl text-semantic-text-primary'"
@@ -62,7 +67,12 @@
             <span class="font-display font-extrabold text-2xl leading-none shrink-0 mt-1 text-surface-500">—</span>
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-3 mb-2">
-                <span class="text-2xl leading-none shrink-0" aria-hidden="true">{{ othersItem?.flag }}</span>
+                <img
+                  :src="getCountryFlagUrl(othersItem?.team || '')"
+                  :alt="othersItem?.team"
+                  class="w-6 h-4 object-cover rounded-sm shadow-sm shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
                 <span class="font-display font-bold text-xl leading-tight truncate text-semantic-text-secondary">
                   {{ othersItem?.team }}
                 </span>

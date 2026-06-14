@@ -25,9 +25,11 @@
           :key="card.label"
           class="flex items-start gap-4"
         >
-          <span class="text-2xl flex-shrink-0 leading-none mt-0.5" role="img" :aria-label="`Bandeira de ${card.team}`">
-            {{ card.flag }}
-          </span>
+          <img
+            :src="getCountryFlagUrl(card.team)"
+            :alt="`Bandeira de ${card.team}`"
+            class="w-7 h-5 object-cover rounded-sm shadow-sm flex-shrink-0 mt-0.5"
+          />
           <div>
             <p class="text-xs font-semibold uppercase tracking-wider text-semantic-accent mb-0.5">
               {{ card.label }}
