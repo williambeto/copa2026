@@ -56,9 +56,10 @@
               <span
                 v-for="opp in scenario.potentialOpponents"
                 :key="opp"
-                class="tag-flag"
+                class="tag-flag flex items-center gap-1"
               >
-                {{ opp }}
+                <span aria-hidden="true">{{ getCountryFlag(opp) }}</span>
+                <span>{{ opp }}</span>
               </span>
             </div>
           </div>
