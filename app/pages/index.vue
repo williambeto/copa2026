@@ -9,6 +9,7 @@
     <RankingExplanation />
     <GroupDifficulty />
     <TournamentPath />
+    <TournamentBracket />
     <RecentFormChart />
     <KeyPlayersSection />
     <InjuryTracker />
