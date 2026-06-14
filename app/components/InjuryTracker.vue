@@ -32,7 +32,7 @@
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 mb-0.5">
-                <span class="text-sm" aria-hidden="true">{{ getTeamFlag(injury.teamId) }}</span>
+                <img :src="getCountryFlagUrl(getTeamName(injury.teamId))" :alt="injury.teamId" class="w-5 h-3.5 object-cover rounded-sm shadow-sm shrink-0" aria-hidden="true" />
                 <h4 class="font-display font-bold text-sm text-semantic-text-primary truncate">{{ injury.player }}</h4>
               </div>
               <p class="text-xs text-semantic-text-secondary">{{ getPosition(injury) }}</p>
@@ -92,7 +92,7 @@
 
             <div v-for="{ team, injuries } in groupedTeams" :key="team.id" class="mb-6 last:mb-0">
               <h4 class="flex items-center gap-2 font-display font-bold text-sm text-semantic-text-primary mb-3">
-                <span aria-hidden="true">{{ team.flag }}</span>
+                <img :src="getCountryFlagUrl(team.name)" :alt="team.name" class="w-5 h-3.5 object-cover rounded-sm shadow-sm" aria-hidden="true" />
                 {{ team.name }}
               </h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -221,6 +221,10 @@ function avatarBgClass(status: InjuryInfo['status']): string {
 
 function getTeamFlag(teamId: string): string {
   return TEAMS.find(t => t.id === teamId)?.flag ?? ''
+}
+
+function getTeamName(teamId: string): string {
+  return TEAMS.find(t => t.id === teamId)?.name ?? ''
 }
 
 function getPosition(injury: InjuryInfo): string {

@@ -44,6 +44,41 @@ const flagMap: Record<string, string> = {
   'Nova Zelândia': '🇳🇿'
 }
 
+const codeMap: Record<string, string> = {
+  'Espanha': 'es',
+  'França': 'fr',
+  'Inglaterra': 'gb-eng',
+  'Argentina': 'ar',
+  'Portugal': 'pt',
+  'Brasil': 'br',
+  'Alemanha': 'de',
+  'Holanda': 'nl',
+  'Noruega': 'no',
+  'Bélgica': 'be',
+  'Colômbia': 'co',
+  'Uruguai': 'uy',
+  'Marrocos': 'ma',
+  'Equador': 'ec',
+  'Japão': 'jp',
+  'Senegal': 'sn',
+  'Croácia': 'hr',
+  'Turquia': 'tr',
+  'Estados Unidos': 'us',
+  'Canadá': 'ca',
+  'México': 'mx',
+  'Arábia Saudita': 'sa',
+  'Cabo Verde': 'cv',
+  'Iraque': 'iq',
+  'Argélia': 'dz',
+  'Áustria': 'at',
+  'Jordânia': 'jo',
+  'Gana': 'gh',
+  'Panamá': 'pa',
+  'República Democrática do Congo': 'cd',
+  'Uzbequistão': 'uz',
+  'Nova Zelândia': 'nz'
+}
+
 /**
  * Retorna o emoji da bandeira do país correspondente.
  * @param name Nome do país ou descrição da seleção
@@ -56,4 +91,18 @@ export function getCountryFlag(name: string): string {
   }
   return '🌍'
 }
+
+/**
+ * Retorna a URL da imagem da bandeira do país (FlagCDN).
+ * @param name Nome do país ou descrição da seleção
+ */
+export function getCountryFlagUrl(name: string): string {
+  for (const [key, code] of Object.entries(codeMap)) {
+    if (name.includes(key)) {
+      return `https://flagcdn.com/w40/${code}.png`
+    }
+  }
+  return 'https://flagcdn.com/w40/un.png' // Bandeira da ONU para outros/indefinidos
+}
+
 

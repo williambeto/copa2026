@@ -19,7 +19,7 @@
         >
           <!-- Team header -->
           <div class="flex items-center gap-3 mb-5">
-            <span class="text-3xl leading-none" aria-hidden="true">{{ entry.team.flag }}</span>
+            <img :src="getCountryFlagUrl(entry.team.name)" :alt="entry.team.name" class="w-8 h-5.5 object-cover rounded-sm shadow-sm" />
             <h3 class="font-display text-xl font-bold">{{ entry.team.name }}</h3>
           </div>
 
@@ -30,9 +30,9 @@
               <span
                 v-for="opp in entry.group.opponents"
                 :key="opp"
-                class="tag-flag flex items-center gap-1"
+                class="tag-flag flex items-center gap-1.5"
               >
-                <span aria-hidden="true">{{ getCountryFlag(opp) }}</span>
+                <img :src="getCountryFlagUrl(opp)" :alt="opp" class="w-4 h-3 object-cover rounded-sm" />
                 <span>{{ opp }}</span>
               </span>
             </div>
@@ -98,7 +98,7 @@
             class="editorial-card-border p-5"
           >
             <div class="flex items-center gap-2.5 mb-3">
-              <span class="text-xl leading-none" aria-hidden="true">{{ entry.team.flag }}</span>
+              <img :src="getCountryFlagUrl(entry.team.name)" :alt="entry.team.name" class="w-6 h-4 object-cover rounded-sm shadow-sm" />
               <span class="font-display font-semibold text-base">{{ entry.team.name }}</span>
             </div>
             <p class="text-sm leading-relaxed font-sans">{{ entry.group.knockoutImpact }}</p>

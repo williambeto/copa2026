@@ -15,7 +15,7 @@
               <th class="w-44">Critério</th>
               <th v-for="team in topThree" :key="team.id" class="text-center">
                 <div class="flex items-center justify-center gap-1.5">
-                  <span>{{ team.flag }}</span>
+                  <img :src="getCountryFlagUrl(team.name)" :alt="team.name" class="w-5 h-3.5 object-cover rounded-sm shadow-sm" />
                   <span>{{ team.name }}</span>
                 </div>
               </th>
@@ -74,7 +74,7 @@
                   <tr v-for="team in allTeams" :key="team.id">
                     <td>
                       <div class="flex items-center gap-2">
-                        <span>{{ team.flag }}</span>
+                        <img :src="getCountryFlagUrl(team.name)" :alt="team.name" class="w-5 h-3.5 object-cover rounded-sm shadow-sm" />
                         <span class="font-medium text-semantic-text-primary">{{ team.name }}</span>
                       </div>
                     </td>

@@ -107,7 +107,7 @@
           class="editorial-card-border p-5 rounded-lg hover:border-semantic-accent/30 transition-colors duration-200"
         >
           <div class="flex items-center gap-3 mb-2">
-            <span class="text-2xl" aria-hidden="true">{{ item.flag }}</span>
+            <img :src="getCountryFlagUrl(item.team)" :alt="item.team" class="w-6 h-4 object-cover rounded-sm shadow-sm" aria-hidden="true" />
             <h4 class="font-display font-bold text-semantic-text-primary">{{ item.team }}</h4>
           </div>
           <p class="text-sm text-semantic-text-muted leading-relaxed">{{ item.advantage }}</p>

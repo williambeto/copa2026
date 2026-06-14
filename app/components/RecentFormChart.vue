@@ -18,7 +18,7 @@
           :key="team.team"
           class="editorial-card-border p-4 text-center"
         >
-          <div class="text-2xl mb-1" aria-hidden="true">{{ team.flag }}</div>
+          <img :src="getCountryFlagUrl(team.team)" :alt="team.team" class="w-7 h-5 object-cover rounded-sm shadow-sm mx-auto mb-2" aria-hidden="true" />
           <p class="font-display font-bold text-semantic-text-primary text-sm mb-2">{{ team.team }}</p>
           <div class="stat-badge-neutral text-xs mb-2">
             {{ team.record }}
@@ -47,7 +47,7 @@
           :tabindex="selectedTeam === team.team ? 0 : -1"
           @click="selectedTeam = team.team"
         >
-          <span aria-hidden="true">{{ team.flag }}</span>
+          <img :src="getCountryFlagUrl(team.team)" :alt="team.team" class="w-5 h-3.5 object-cover rounded-sm shadow-sm shrink-0" aria-hidden="true" />
           <span>{{ team.team }}</span>
         </button>
       </div>

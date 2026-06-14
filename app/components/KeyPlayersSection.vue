@@ -31,7 +31,12 @@
           @click="activeTab = team.id"
           @keydown="handleTabKeydown($event, team.id)"
         >
-          <span aria-hidden="true">{{ team.flag }}</span>
+          <img
+            :src="getCountryFlagUrl(team.name)"
+            :alt="team.name"
+            class="w-5 h-3.5 object-cover rounded-sm shadow-sm shrink-0"
+            aria-hidden="true"
+          />
           <span>{{ team.name }}</span>
         </button>
       </div>
@@ -63,8 +68,8 @@
           <div class="editorial-card-border p-5">
             <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
               <img
-                src="https://images.unsplash.com/photo-1431324155629-1aa5d55f1bd8?w=600&q=80"
-                alt="Jogador decisivo em treino"
+                src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=600&q=80"
+                alt="Jogador decisivo em ação"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="lazy"
               />
@@ -93,7 +98,7 @@
           <div class="editorial-card-border p-5">
             <div class="relative overflow-hidden w-full aspect-[3/2] rounded-sm mb-3 border border-semantic-border/40 bg-semantic-background-muted">
               <img
-                src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&q=80"
+                src="https://images.unsplash.com/photo-1546608235-3310a2494cdf?w=600&q=80"
                 alt="Jogador reserva aguardando entrada"
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 loading="lazy"

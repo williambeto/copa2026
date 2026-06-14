@@ -19,7 +19,7 @@
             <div class="photo-overlay" />
             <div class="relative z-10 h-full flex flex-col justify-end p-5">
               <div class="flex items-center gap-2 mb-1">
-                <span class="tag-flag text-lg">{{ profile.team.flag }}</span>
+                <img :src="getCountryFlagUrl(profile.team.name)" :alt="profile.team.name" class="w-6 h-4 object-cover rounded-sm shadow-sm" />
                 <span class="text-xs font-semibold uppercase tracking-wider text-white/70">
                   {{ profile.positionLabel }}
                 </span>
