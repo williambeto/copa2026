@@ -61,11 +61,11 @@
         </div>
       </div>
 
-      <!-- SoFi Stadium photo — 2026 WC host venue (CC0) -->
+      <!-- SoFi Stadium photo — 2026 WC host venue (AI Generated) -->
       <figure class="mb-12 rounded-lg overflow-hidden border border-semantic-border shadow-lg">
         <div class="relative aspect-[21/9]">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Aerial_view_of_SoFi_Stadium_%28July_2022%29.jpg"
+            src="/images/sofi_stadium.png"
             alt="Vista aérea do SoFi Stadium, Los Angeles — sede da Copa do Mundo FIFA 2026"
             class="w-full h-full object-cover"
             loading="lazy"
@@ -80,7 +80,7 @@
           </div>
         </div>
         <figcaption class="px-4 py-2 text-xs text-semantic-text-muted font-mono bg-semantic-surface">
-          Foto: Wikimedia Commons · CC0 1.0 Domínio Público · SoFi Stadium é uma das sedes da Copa do Mundo FIFA 2026
+          Foto: Imagem gerada por Inteligência Artificial · AI Workflow · SoFi Stadium é uma das sedes da Copa do Mundo FIFA 2026
         </figcaption>
       </figure>
 
