@@ -45,6 +45,13 @@ O repositório do GitHub foi conectado diretamente ao painel do **Cloudflare Pag
 
 ---
 
+## 📝 Reconstruindo o Site via IA (`prompt.md`)
+
+Para fins de portabilidade e documentação, o repositório conta com o arquivo [prompt.md](./prompt.md) na sua raiz. 
+Este arquivo contém um blueprint técnico completo do projeto (estrutura de diretórios, tokens de design, especificações detalhadas de componentes e regras de lógica) estruturado em formato de prompt. Ele serve para que qualquer assistente de inteligência artificial (IA) possa ler as especificações e regenerar todo o site de forma idêntica a partir do zero.
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 - **Framework:** Nuxt 3 (SSR + Vue 3)
 - **Estilização:** Tailwind CSS (com sistema de cores semânticas customizado para modo claro/escuro)
