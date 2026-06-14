@@ -79,6 +79,17 @@
         <p class="text-xs text-semantic-text-muted">
           &copy; 2026 World Cup 2026 Intelligence. Todos os direitos reservados.
         </p>
+        <p class="text-xs text-semantic-text-secondary flex items-center gap-1">
+          Construído com
+          <a
+            href="https://ai-workflow-kit-site.pages.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-semibold text-semantic-accent hover:underline inline-flex items-center gap-0.5"
+          >
+            ⚡ AI Workflow
+          </a>
+        </p>
         <p class="text-xs text-semantic-text-muted font-mono">
           Edição de 12 de junho de 2026
         </p>
